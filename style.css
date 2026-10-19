@@ -1,0 +1,389 @@
+/* ==========================================================
+   RESET & DASAR (TANPA ANIMASI / TRANSISI)
+   ========================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: none !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #f6f8f6;
+  color: #333333;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* a {
+  text-decoration: none;
+  color: inherit;
+} */
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ==========================================================
+   NAVBAR (HANYA SEARCH BOX SEDERHANA)
+   ========================================================== */
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 14px 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+}
+
+.search-box {
+  width: 100%;
+  max-width: 560px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid #cccccc;
+  outline: none;
+  background-color: #ffffff;
+  font-size: 0.9rem;
+}
+
+/* ==========================================================
+   CARD JADWAL (HERO)
+   - Semua tulisan warna putih
+   - Tanpa garis-garis
+   - Tanpa animasi
+   ========================================================== */
+.hero-banner {
+  background-color: #183e29;
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 20px;
+  color: #ffffff;
+}
+
+.hero-top {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: none;
+  padding-bottom: 8px;
+  font-size: 0.85rem;
+  color: #ffffff;
+}
+
+.location-picker {
+  color: #ffffff;
+}
+
+.location-picker select {
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-left: 6px;
+  background: #ffffff;
+  color: #333333;
+  border: none;
+}
+
+.hero-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border: none;
+}
+
+.hero-left,
+.hero-right {
+  color: #ffffff;
+}
+
+.hero-headline {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.hero-headline h2 {
+  font-size: 1.8rem;
+  color: #ffffff;
+}
+
+.hero-highlight {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.hero-desc {
+  font-size: 0.85rem;
+  color: #ffffff;
+}
+
+.hero-right {
+  text-align: right;
+}
+
+.hero-info-label {
+  font-size: 0.75rem;
+  color: #ffffff;
+}
+
+.hero-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.hero-footer {
+  display: flex;
+  justify-content: flex-end;
+  border: none;
+  padding-top: 8px;
+}
+
+.btn-hero-action {
+  background-color: #ffffff;
+  color: #183e29;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+/* ==========================================================
+   KARTU (UMUM)
+   ========================================================== */
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+/* ==========================================================
+   3 KARTU MENU (TANPA LOGO BOX, TANPA TAG)
+   ========================================================== */
+.feature-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.card-content h3 {
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+  color: #222222;
+}
+
+.card-content p {
+  font-size: 0.85rem;
+  color: #666666;
+  margin-bottom: 10px;
+}
+
+.card-link {
+  font-size: 0.82rem;
+  font-weight: bold;
+  color: #1e5e3a;
+}
+
+/* ==========================================================
+   SEKSI 1: GRID 3 KOLOM
+   - Tanpa label seksi
+   - Tanpa tag, status, dan keterangan
+   ========================================================== */
+.section-grid,
+.section-list {
+  margin-top: 32px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #222222;
+}
+
+.btn-pill {
+  background: transparent;
+  color: #1e5e3a;
+  padding: 6px 0;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.item-card {
+  display: flex;
+  flex-direction: column;
+  border: none;
+}
+
+.item-title {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #222222;
+}
+
+.content-primary {
+  font-size: 0.88rem;
+  background-color: #fbfbfb;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  color: #444444;
+}
+
+.content-secondary {
+  font-size: 0.82rem;
+  color: #777777;
+  margin-bottom: 12px;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: flex-end;
+  border: none;
+  padding-top: 8px;
+  margin-top: auto;
+  font-size: 0.8rem;
+}
+
+.link-detail {
+  font-weight: bold;
+  color: #1e5e3a;
+}
+
+/* ==========================================================
+   SEKSI 2: LIST SEDERHANA
+   - Tanpa numbering
+   - Tanpa meta "Menampilkan X / Buka Semua"
+   - Tanpa tombol buka tutup
+   ========================================================== */
+.section-header-simple {
+  margin-bottom: 14px;
+}
+
+.section-desc {
+  font-size: 0.85rem;
+  color: #666666;
+  margin-top: 2px;
+}
+
+.simple-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.list-item {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.list-title {
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #222222;
+  margin-bottom: 4px;
+}
+
+.list-content {
+  font-size: 0.85rem;
+  color: #666666;
+}
+
+/* ==========================================================
+   PAGINATION BASIC / DEFAULT
+   ========================================================== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  margin-top: 24px;
+}
+
+.pagination a {
+  padding: 6px 12px;
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+  color: #333333;
+  font-size: 0.85rem;
+  border-radius: 4px;
+}
+
+.pagination a.active {
+  background-color: #183e29;
+  border-color: #183e29;
+  color: #ffffff;
+}
+
+/* ==========================================================
+   FOOTER (HANYA COPYRIGHT)
+   ========================================================== */
+.footer {
+  background-color: #ffffff;
+  border-top: 1px solid #e0e0e0;
+  padding: 24px 0;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: #888888;
+}
+
+/* ==========================================================
+   RESPONSIF MOBILE
+   ========================================================== */
+@media (max-width: 768px) {
+  .hero-main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .hero-right {
+    text-align: left;
+  }
+
+  .feature-cards,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}

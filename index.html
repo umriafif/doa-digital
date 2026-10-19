@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wireframe Layout</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Pencarian...">
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ================= CARD JADWAL (HERO) ================= -->
+    <section class="hero-banner">
+      <div class="hero-top">
+        <div class="location-picker">
+          <span>Wilayah:</span>
+          <select>
+            <option>Wilayah 1</option>
+            <option>Wilayah 2</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="hero-main">
+        <div class="hero-left">
+          <div class="hero-headline">
+            <h2>Dzuhur</h2>
+            <span class="hero-highlight">11.42 WIB</span>
+          </div>
+          <p class="hero-desc">Senin, 19 Oktober 2026</p>
+        </div>
+
+        <div class="hero-right">
+          <span class="hero-info-label">Countdown Sholat:</span>
+          <div class="hero-value">00:00:00</div>
+        </div>
+      </div>
+
+      <div class="hero-footer">
+        <button class="btn-hero-action">Tombol Aksi Utama &rarr;</button>
+      </div>
+    </section>
+
+    <!-- ================= 3 KARTU MENU UTAMA ================= -->
+    <section class="feature-cards">
+      <div class="card feature-card">
+        <div class="card-content">
+          <h3>Menu 1</h3>
+          <p>Deskripsi menu 1.</p>
+          <a href="#" class="card-link">Menu 1</a>
+        </div>
+      </div>
+
+      <div class="card feature-card">
+        <div class="card-content">
+          <h3>Menu 2</h3>
+          <p>Deskripsi menu 2.</p>
+          <a href="#" class="card-link">Menu 2</a>
+        </div>
+      </div>
+
+      <div class="card feature-card">
+        <div class="card-content">
+          <h3>Menu 3</h3>
+          <p>Deskripsi menu 3.</p>
+          <a href="#" class="card-link">Menu 3</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SEKSI 1 (GRID 3 KOLOM) ================= -->
+    <section class="section-grid">
+      <div class="section-header">
+        <h2 class="section-title">Doa Favorit</h2>
+        <button class="btn-pill">Lihat Semua</button>
+      </div>
+
+      <div class="grid-3">
+        <!-- Item 1 -->
+        <div class="card item-card">
+          <h4 class="item-title">Doa 1</h4>
+          <p class="content-primary">Isi Doa 1.</p>
+          <p class="content-secondary">Arti.</p>
+          <div class="card-bottom">
+            <a href="#" class="link-detail">Detail</a>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="card item-card">
+          <h4 class="item-title">Doa 2</h4>
+          <p class="content-primary">Isi Doa 2.</p>
+          <p class="content-secondary">Arti.</p>
+          <div class="card-bottom">
+            <a href="#" class="link-detail">Detail</a>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="card item-card">
+          <h4 class="item-title">Doa 3</h4>
+          <p class="content-primary">Isi Doa 3.</p>
+          <p class="content-secondary">Arti.</p>
+          <div class="card-bottom">
+            <a href="#" class="link-detail">Detail</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SEKSI 2 (LIST) ================= -->
+    <section class="section-list">
+      <div class="section-header-simple">
+        <h2 class="section-title">Daftar Doa</h2>
+        <p class="section-desc">List seluruh doa yang tersedia.</p>
+      </div>
+
+      <div class="simple-list" id="simpleList">
+        <!-- List Item 1 -->
+        <div class="list-item">
+          <div class="list-title">Doa 1</div>
+          <div class="list-content">Detail doa 1.</div>
+        </div>
+
+        <!-- List Item 2 -->
+        <div class="list-item">
+          <div class="list-title">Doa 2</div>
+          <div class="list-content">Detail doa 2.</div>
+        </div>
+
+        <!-- List Item 3 -->
+        <div class="list-item">
+          <div class="list-title">Doa 3</div>
+          <div class="list-content">Detail doa 3.</div>
+        </div>
+
+        <!-- List Item 4 -->
+        <div class="list-item">
+          <div class="list-title">Doa 4</div>
+          <div class="list-content">Detail doa 4.</div>
+        </div>
+
+        <!-- List Item 5 -->
+        <div class="list-item">
+          <div class="list-title">Doa 5</div>
+          <div class="list-content">Detail doa 5.</div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <a href="#">&laquo;</a>
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">&raquo;</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-copy">&copy; 2026 Wireframe Layout. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
