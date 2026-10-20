@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Doa</title>
+  
+  <!-- Font Google: Inter untuk UI & Amiri untuk teks Arab -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="daftar_doa.css">
+</head>
+<body>
+
+  <main class="container">
+    
+    <!-- Pencarian -->
+    <div class="search-wrapper">
+      <div class="search-box">
+        <input 
+          type="text" 
+          id="searchInput" 
+          class="search-input" 
+          placeholder="Pencarian..." 
+          autocomplete="off"
+        >
+      </div>
+    </div>
+
+    <!-- Bagian Utama: Daftar Doa -->
+    <div id="daftarDoaSection">
+      <div class="section-header">
+        <div class="title-group">
+          <h3>Daftar Doa</h3>
+          <p>List seluruh doa yang tersedia.</p>
+        </div>
+        <div class="info-count" id="infoCount">Menampilkan 1-10</div>
+      </div>
+
+      <!-- Wadah List Card Doa -->
+      <div class="doa-list" id="doaListContainer">
+        <!-- Card doa akan di-render secara dinamis oleh JavaScript -->
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination-wrapper" id="paginationContainer">
+      </div>
+    </div>
+
+  </main>
+
+  <!-- footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-copy">&copy; 2026.</p>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="daftar_doa.js"></script>
+</body>
+</html>

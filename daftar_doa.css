@@ -1,0 +1,219 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #f6f8f6;
+  color: #1f2937;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+main.container {
+  flex: 1;
+}
+
+/* Pencarian */
+.search-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.search-box {
+  width: 100%;
+  max-width: 580px;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 14px;
+  color: #374151;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 9999px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.search-input:focus {
+  border-color: #1b4332;
+  box-shadow: 0 0 0 3px rgba(27, 67, 50, 0.15);
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
+/* Header Daftar Doa */
+.section-header {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.section-header .title-group h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.section-header .title-group p {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.section-header .info-count {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* List Doa Cards */
+.doa-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.doa-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 18px 22px;
+}
+
+.doa-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.doa-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.doa-source {
+  font-size: 11px;
+  color: #047857;
+  background: #ecfdf5;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.doa-arabic-box {
+  background-color: #f3f4f6;
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin: 10px 0 12px 0;
+  text-align: right;
+}
+
+.doa-arabic {
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+  font-size: 21px;
+  line-height: 2;
+  color: #111827;
+  direction: rtl;
+}
+
+.doa-latin {
+  font-size: 13px;
+  color: #4b5563;
+  font-style: italic;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.doa-meaning {
+  font-size: 13px;
+  color: #1f2937;
+  line-height: 1.5;
+}
+
+.doa-meaning span.label {
+  font-weight: 600;
+  color: #374151;
+}
+
+.no-result {
+  background: #ffffff;
+  border: 1px dashed #d1d5db;
+  border-radius: 8px;
+  padding: 36px 20px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Pagination */
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 24px;
+}
+
+.page-btn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2563eb;
+  padding: 4px 8px;
+  cursor: pointer;
+  text-decoration: underline;
+  border-radius: 4px;
+}
+
+.page-btn.active {
+  font-weight: 700;
+  color: #1b4332;
+  text-decoration: none;
+  background-color: #e5e7eb;
+  cursor: default;
+}
+
+.page-btn:disabled {
+  color: #9ca3af;
+  cursor: not-allowed;
+  text-decoration: none;
+  background: none;
+}
+
+/* Footer Sesuai Halaman Lain */
+.footer {
+  background-color: #ffffff;
+  border-top: 1px solid #e0e0e0;
+  padding: 24px 0;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: #888888;
+}
