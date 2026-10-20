@@ -183,7 +183,8 @@ button {
   margin-top: 32px;
 }
 
-.fav-header {
+.fav-header,
+.list-doa-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -203,6 +204,8 @@ button {
   padding: 6px 0;
   font-size: 0.85rem;
   font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .fav-cards {
@@ -253,10 +256,6 @@ button {
 }
 
 /* list doa */
-.section-header-simple {
-  margin-bottom: 14px;
-}
-
 .section-desc {
   font-size: 0.85rem;
   color: #666666;
