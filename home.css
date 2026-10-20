@@ -46,7 +46,7 @@ button {
 }
 
 /* card waktu sholat */
-.hero-banner {
+.card-sholat {
   background-color: #183e29;
   border-radius: 8px;
   padding: 24px;
@@ -54,7 +54,7 @@ button {
   color: #ffffff;
 }
 
-.hero-top {
+.sholat-top {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -64,11 +64,11 @@ button {
   color: #ffffff;
 }
 
-.location-picker {
+.sholat-location {
   color: #ffffff;
 }
 
-.location-picker select {
+.sholat-location select {
   padding: 4px 8px;
   margin-left: 6px;
   background: #ffffff;
@@ -76,7 +76,7 @@ button {
   border: none;
 }
 
-.hero-main {
+.sholat-main {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -84,52 +84,57 @@ button {
   border: none;
 }
 
-.hero-left,
-.hero-right {
+.sholat-left,
+.sholat-right {
   color: #ffffff;
 }
 
-.hero-headline {
+.sholat-headline {
   display: flex;
   align-items: baseline;
   gap: 10px;
   margin-bottom: 4px;
 }
 
-.hero-headline h2 {
+.sholat-headline h2 {
   font-size: 1.8rem;
   color: #ffffff;
 }
 
-.hero-highlight {
+.sholat-highlight {
   font-size: 1.25rem;
   font-weight: bold;
   color: #ffffff;
 }
 
-.hero-right {
+.sholat-desc {
+  font-size: 0.85rem;
+  color: #ffffff;
+}
+
+.sholat-right {
   text-align: right;
 }
 
-.hero-info-label {
+.sholat-info-label {
   font-size: 0.75rem;
   color: #ffffff;
 }
 
-.hero-value {
+.sholat-value {
   font-size: 2rem;
   font-weight: bold;
   color: #ffffff;
 }
 
-.hero-footer {
+.sholat-footer {
   display: flex;
   justify-content: flex-end;
   border: none;
   padding-top: 8px;
 }
 
-.btn-hero-action {
+.btn-sholat-action {
   background-color: #ffffff;
   color: #183e29;
   padding: 8px 18px;
@@ -147,51 +152,52 @@ button {
 }
 
 /* menu */
-.feature-cards {
+.menu-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-top: 20px;
 }
 
-.card-content h3 {
+.menu-content h3 {
   font-size: 1.05rem;
   margin-bottom: 6px;
   color: #222222;
 }
 
-.card-content p {
+.menu-content p {
   font-size: 0.85rem;
   color: #666666;
   margin-bottom: 10px;
 }
 
-.card-link {
+.menu-link {
   font-size: 0.82rem;
   font-weight: bold;
   color: #1e5e3a;
 }
 
-/* favorit */
-.section-grid,
-.section-list {
+/* favorit & list doa */
+.fav-grid,
+.list-doa {
   margin-top: 32px;
 }
 
-.section-header {
+.fav-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 14px;
 }
 
+.fav-title,
 .section-title {
   font-size: 1.25rem;
   font-weight: bold;
   color: #222222;
 }
 
-.btn-pill {
+.btn-fav {
   background: transparent;
   color: #1e5e3a;
   padding: 6px 0;
@@ -199,25 +205,25 @@ button {
   font-weight: bold;
 }
 
-.grid-3 {
+.fav-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
 
-.item-card {
+.fav-card {
   display: flex;
   flex-direction: column;
   border: none;
 }
 
-.item-title {
+.fav-card-title {
   font-size: 1rem;
   margin-bottom: 8px;
   color: #222222;
 }
 
-.content-primary {
+.fav-content-primary {
   font-size: 0.88rem;
   background-color: #eaeaeb;
   border: none;
@@ -226,13 +232,13 @@ button {
   color: #444444;
 }
 
-.content-secondary {
+.fav-content-secondary {
   font-size: 0.82rem;
   color: #777777;
   margin-bottom: 12px;
 }
 
-.card-bottom {
+.fav-card-bottom {
   display: flex;
   justify-content: flex-end;
   border: none;
@@ -241,7 +247,7 @@ button {
   font-size: 0.8rem;
 }
 
-.link-detail {
+.fav-link-detail {
   font-weight: bold;
   color: #1e5e3a;
 }
@@ -306,18 +312,18 @@ button {
 
 /* responsive */
 @media (max-width: 768px) {
-  .hero-main {
+  .sholat-main {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
   }
 
-  .hero-right {
+  .sholat-right {
     text-align: left;
   }
 
-  .feature-cards,
-  .grid-3 {
+  .menu-cards,
+  .fav-cards {
     grid-template-columns: 1fr;
   }
 }

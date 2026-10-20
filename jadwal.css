@@ -1,11 +1,16 @@
 body {
+  margin: 0;
   font-family: sans-serif;
   background-color: #f6f8f6;
   color: #333333;
   line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
+  width: 100%;
   max-width: 960px;
   margin: 0 auto;
   padding: 0 16px;
@@ -77,7 +82,7 @@ body {
 }
 
 /* card countdown */
-.hero-banner {
+.countdown-card {
   background-color: #183e29;
   border-radius: 8px;
   padding: 24px;
@@ -85,7 +90,7 @@ body {
   color: #ffffff;
 }
 
-.hero-main {
+.countdown-main {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -93,39 +98,39 @@ body {
   border: none;
 }
 
-.hero-left,
-.hero-right {
+.countdown-left,
+.countdown-right {
   color: #ffffff;
 }
 
-.hero-headline {
+.countdown-sholat-time {
   display: flex;
   align-items: baseline;
   gap: 10px;
   margin-bottom: 4px;
 }
 
-.hero-headline h2 {
+.countdown-sholat-time h2 {
   font-size: 1.8rem;
   color: #ffffff;
 }
 
-.hero-highlight {
+.countdown-highlight {
   font-size: 1.25rem;
   font-weight: bold;
   color: #ffffff;
 }
 
-.hero-right {
+.countdown-right {
   text-align: right;
 }
 
-.hero-info-label {
+.countdown-info-label {
   font-size: 0.75rem;
   color: #ffffff;
 }
 
-.hero-value {
+.countdown-time {
   font-size: 2rem;
   font-weight: bold;
   color: #ffffff;
@@ -191,7 +196,7 @@ body {
   background-color: #ffffff;
   border-top: 1px solid #e0e0e0;
   padding: 24px 0;
-  margin-top: 40px;
+  margin-top: auto;
   text-align: center;
 }
 
@@ -202,13 +207,13 @@ body {
 
 /* responsive */
 @media (max-width: 768px) {
-  .hero-main {
+  .countdown-main {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
   }
 
-  .hero-right {
+  .countdown-right {
     text-align: left;
   }
 
