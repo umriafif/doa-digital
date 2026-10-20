@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doa Favorit - Doa & Dzikir Harian</title>
+  
+  <!-- Font Google untuk Arab dan Teks Utama -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- File CSS Eksternal -->
+  <link rel="stylesheet" href="favorit.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <h1>Doa & Dzikir Favorit</h1>
+    <p>Kumpulan doa dan dzikir yang kamu simpan</p>
+  </header>
+
+  <main class="container">
+    <a href="index.html" class="btn-back-link">← Kembali</a>
+
+    <div class="section-header">
+      <span class="section-title">Daftar Tersimpan</span>
+      <span class="badge-count" id="favorite-count">2 Doa</span>
+    </div>
+
+    <!-- WADAH KARTU FAVORIT -->
+    <div id="favorite-list">
+
+      <!-- Kartu Doa Favorit 1 -->
+      <details class="card-doa favorite-card">
+        <summary class="dropdown-header">
+          <div class="header-left">
+            <span class="badge-count">Doa Harian</span>
+            <span class="dropdown-title">Doa Memohon Ilmu & Rezeki</span>
+          </div>
+          <div class="header-right">
+            <!-- Tombol Hati Merah Active -->
+            <button class="btn-heart active" onclick="toggleFavorite(event, this)" title="Hapus dari Favorit">
+              <span class="star-icon">★</span>
+            </button>
+            <span class="dropdown-icon">▼</span>
+          </div>
+        </summary>
+        <div class="dropdown-body">
+          <p class="text-arabic">اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا وَرِزْقًا طَيِّبًا وَعَمَلًا مُتَقَبَّلًا</p>
+          <p class="text-latin">Allahumma innii as-aluka 'ilman naafi'aw wa rizqan thayyibaw wa 'amalam mutaqabbalaa.</p>
+          <p class="text-terjemahan">"Ya Allah, sesungguhnya aku memohon kepada-Mu ilmu yang bermanfaat, rezeki yang baik, dan amal yang diterima."</p>
+          <p class="text-riwayat">HR. Ibn Majah - Dibaca setelah shalat Subuh.</p>
+        </div>
+      </details>
+
+      <!-- Kartu Doa Favorit 2 -->
+      <details class="card-doa favorite-card">
+        <summary class="dropdown-header">
+          <div class="header-left">
+            <span class="badge-count">Dzikir Pagi</span>
+            <span class="dropdown-title">Ayat Kursi</span>
+          </div>
+          <div class="header-right">
+            <!-- Tombol Hati Merah Active -->
+            <button class="btn-heart active" onclick="toggleFavorite(event, this)" title="Hapus dari Favorit">
+              <span class="star-icon">★</span>
+            </button>
+            <span class="dropdown-icon">▼</span>
+          </div>
+        </summary>
+        <div class="dropdown-body">
+          <p class="text-arabic">اللَّهُ لَا إِلٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ</p>
+          <p class="text-latin">Allahu laa ilaaha illaa huwal hayyul qayyuum...</p>
+          <p class="text-terjemahan">"Allah, tidak ada tuhan selain Dia Yang Mahahidup, Yang terus-menerus mengurus (makhluk-Nya)..."</p>
+          <p class="text-riwayat">HR. An-Nasa'i - Dzikir perlindungan pagi & petang.</p>
+        </div>
+      </details>
+
+    </div>
+
+    <!-- TAMPILAN JIKA FAVORIT KOSONG -->
+    <div id="empty-state" class="empty-state" style="display: none;">
+      <div class="empty-state-icon">☆</div>
+      <h3>Belum Ada Favorit</h3>
+      <p>Tekan tanda bintang ★ pada doa atau dzikir yang ingin kamu simpan di sini.</p>
+    </div>
+
+  </main>
+
+  <!-- SCRIPT INTERAKSI SIMBOL BINTANG -->
+  <script>
+    function toggleFavorite(event, btn) {
+      // Mencegah dropdown terbuka/tertutup saat tombol bintang diklik
+      event.stopPropagation();
+      event.preventDefault();
+
+      const card = btn.closest('.favorite-card');
+
+      if (btn.classList.contains('active')) {
+        // Hilangkan warna pada bintang
+        btn.classList.remove('active');
+        btn.querySelector('.star-icon').innerText = '☆'; // Berubah jadi bintang kosong
+        btn.setAttribute('title', 'Tambah ke Favorit');
+
+        // Animasi menghilang mulus
+        card.style.transition = 'all 0.3s ease';
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.95)';
+
+        setTimeout(() => {
+          card.remove();
+          updateFavoriteCount();
+        }, 300);
+      } else {
+        // Aktifkan kembali hati merah
+        btn.classList.add('active');
+        btn.querySelector('.heart-icon').innerText = '★';
+        btn.setAttribute('title', 'Hapus dari Favorit');
+      }
+    }
+
+    function updateFavoriteCount() {
+      const remainingCards = document.querySelectorAll('.favorite-card').length;
+      const countBadge = document.getElementById('favorite-count');
+      const emptyState = document.getElementById('empty-state');
+
+      countBadge.innerText = `${remainingCards} Doa`;
+
+      if (remainingCards === 0) {
+        emptyState.style.display = 'block';
+        countBadge.style.display = 'none';
+      }
+    }
+  </script>
+
+</body>
+</html>

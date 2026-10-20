@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dzikir Harian - Doa & Dzikir Harian</title>
+  
+  <!-- Font Google untuk Arab dan Teks Utama -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- File CSS Eksternal -->
+  <link rel="stylesheet" href="dzikir.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <h1 id="header-title">Dzikir Harian</h1>
+    <p id="header-subtitle">Bacalah dengan khusyuk dan penuh pengharapan</p>
+  </header>
+
+  <main class="container">
+
+    <!-- TOMBOL FILTER 3 KELOMPOK WAKTU -->
+    <div class="category-filter">
+      <button class="btn-filter active" onclick="filterGroup('pagi', 'Dzikir Pagi', 'Awali hari dengan perlindungan dan berkah Allah')">🌅 Pagi</button>
+
+      <button class="btn-filter" onclick="filterGroup('petang', 'Dzikir Petang', 'Benteng perlindungan menjelang malam tiba')">🌆 Petang</button>
+      <button class="btn-filter" onclick="filterGroup('sholat', 'Dzikir Sehabis Sholat', 'Amalan utama penutup sholat fardhu')">🕌 Sehabis Sholat</button>
+    </div>
+
+    <!-- KELOMPOK 1: DZIKIR PAGI -->
+    <div id="group-pagi" class="dzikir-group">
+      <div class="section-header">
+        <span class="section-title">Bacaan Dzikir Pagi</span>
+        <span class="badge-count">20 Bacaan</span>
+      </div>
+
+      <article class="card-doa">
+        <div class="card-header">
+          <span class="badge-count">Dibaca ...x</span>
+          <button class="btn-bookmark active" title="Simpan ke Favorit">★</button>
+        </div>
+        <p class="text-arabic">اللَّهُ لَا إِلٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ</p>
+        <p class="text-latin">Allahu laa ilaaha illaa huwal hayyul qayyuum, laa ta'khuzuhuu sinatun wa laa naum...</p>
+        <p class="text-terjemahan">"Allah, tidak ada tuhan selain Dia Yang Mahahidup, Yang terus-menerus mengurus (makhluk-Nya). Tidak mengantuk dan tidak tidur..."</p>
+        <p class="text-riwayat">HR. An-Nasa'i - Dilindungi dari gangguan hingga sore hari.</p>
+        <div class="counter-action">
+          <button class="btn-counter">Selesai (1/20)</button>
+        </div>
+      </article>
+
+      <article class="card-doa">
+        <div class="card-header">
+          <span class="badge-count">Dibaca ...x</span>
+          <button class="btn-bookmark" title="Simpan ke Favorit">☆</button>
+        </div>
+        <p class="text-arabic">بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ</p>
+        <p class="text-latin">Bismillahilladzii laa yadhurru ma'asmihii syai'un fil ardhi wa laa fis samaa'...</p>
+        <p class="text-terjemahan">"Dengan nama Allah yang bersama nama-Nya sesuatu apa pun tidak berbahaya di bumi dan di langit..."</p>
+        <p class="text-riwayat">HR. Abu Dawud & Tirmidzi - Tidak akan disusadai oleh sesuatu pun.</p>
+        <div class="counter-action">
+          <button class="btn-counter">Hitung: 0 / 3</button>
+        </div>
+      </article>
+    </div>
+
+    <!-- KELOMPOK 2: DZIKIR PETANG -->
+    <div id="group-petang" class="dzikir-group" style="display: none;">
+      <div class="section-header">
+        <span class="section-title">Bacaan Dzikir Petang</span>
+        <span class="badge-count">16 Bacaan</span>
+      </div>
+
+      <article class="card-doa">
+        <div class="card-header">
+          <span class="badge-count">Dibaca ...x</span>
+          <button class="btn-bookmark" title="Simpan ke Favorit">☆</button>
+        </div>
+        <p class="text-arabic">أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ لَا إِلَهَ إِلَّا اللَّهُ</p>
+        <p class="text-latin">Amsainaa wa amsal mulku lillah, wal hamdu lillah, laa ilaaha illallah...</p>
+        <p class="text-terjemahan">"Kami telah memasuki waktu petang dan kerajaan hanya milik Allah, segala puji bagi Allah, tidak ada tuhan selain Allah..."</p>
+        <p class="text-riwayat">HR. Muslim - Dzikir utama menjelang malam.</p>
+        <div class="counter-action">
+          <button class="btn-counter">Hitung: 0 / 3</button>
+        </div>
+      </article>
+    </div>
+
+    <!-- KELOMPOK 3: SEHABIS SHOLAT -->
+    <div id="group-sholat" class="dzikir-group" style="display: none;">
+      <div class="section-header">
+        <span class="section-title">Bacaan Dzikir Sehabis Sholat Fardhu</span>
+        <span class="badge-count">10 Bacaan</span>
+      </div>
+
+      <article class="card-doa">
+        <div class="card-header">
+          <span class="badge-count">Dibaca ...x</span>
+          <button class="btn-bookmark" title="Simpan ke Favorit">☆</button>
+        </div>
+        <p class="text-arabic">سُبْحَانَ اللَّهِ</p>
+        <p class="text-latin">Subhanallah (Maha Suci Allah)</p>
+        <p class="text-terjemahan">Dibaca sebanyak 33 kali setelah salam sholat fardhu.</p>
+        <div class="counter-action">
+          <button class="btn-counter">Hitung: 0 / 33</button>
+        </div>
+      </article>
+
+      <article class="card-doa">
+        <div class="card-header">
+          <span class="badge-count">Dibaca ...x</span>
+          <button class="btn-bookmark" title="Simpan ke Favorit">☆</button>
+        </div>
+        <p class="text-arabic">الْحَمْدُ لِلَّهِ</p>
+        <p class="text-latin">Alhamdulillah (Segala puji bagi Allah)</p>
+        <p class="text-terjemahan">Dibaca sebanyak 33 kali setelah sholat fardhu.</p>
+        <div class="counter-action">
+          <button class="btn-counter">Hitung: 0 / 33</button>
+        </div>
+      </article>
+
+      <article class="card-doa">
+        <div class="card-header">
+          <span class="badge-count">Dibaca ...x</span>
+          <button class="btn-bookmark" title="Simpan ke Favorit">☆</button>
+        </div>
+        <p class="text-arabic">اللَّهُ أَكْبَرُ</p>
+        <p class="text-latin">Allahu Akbar (Allah Maha Besar)</p>
+        <p class="text-terjemahan">Dibaca sebanyak 33 kali setelah sholat fardhu.</p>
+        <div class="counter-action">
+          <button class="btn-counter">Hitung: 0 / 33</button>
+        </div>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- SCRIPT UNTUK FILTER KELOMPOK WAKTU -->
+  <script>
+    function filterGroup(groupId, titleText, subtitleText) {
+      // Sembunyikan semua kelompok dzikir
+      document.querySelectorAll('.dzikir-group').forEach(group => {
+        group.style.display = 'none';
+      });
+
+      // Nonaktifkan semua tombol filter
+      document.querySelectorAll('.btn-filter').forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      // Tampilkan kelompok yang dipilih
+      document.getElementById('group-' + groupId).style.display = 'block';
+
+      // Aktifkan tombol yang diklik & ubah header teks
+      event.currentTarget.classList.add('active');
+      document.getElementById('header-title').innerText = titleText;
+      document.getElementById('header-subtitle').innerText = subtitleText;
+    }
+  </script>
+
+</body>
+</html>

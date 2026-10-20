@@ -1,0 +1,230 @@
+:root {
+  --primary-emerald: #0A5C36;
+  --primary-dark: #08482A;
+  --secondary-mint: #E2EDE6;
+  --accent-gold: #D4AF37;
+  --bg-main: #F4F7F6;
+  --bg-card: #FFFFFF;
+  --text-primary: #1E293B;
+  --text-muted: #64748B;
+  --border-color: #E2E8F0;
+  --shadow-sm: 0 4px 12px rgba(10, 92, 54, 0.05);
+  --shadow-md: 0 8px 24px rgba(10, 92, 54, 0.08);
+}
+
+/* RESET & BASE STYLES */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.6;
+  padding-bottom: 40px;
+}
+
+/* HEADER UTAMA */
+.header {
+  background: linear-gradient(135deg, var(--primary-emerald), var(--primary-dark));
+  color: #FFFFFF;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.header p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* CONTAINER KONTEN */
+.container {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* TOMBOL FILTER KATEGORI (PILL TABS) */
+.category-filter {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+  scrollbar-width: none;
+}
+
+.category-filter::-webkit-scrollbar {
+  display: none;
+}
+
+.btn-filter {
+  background-color: var(--bg-card);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+}
+
+.btn-filter:hover {
+  border-color: var(--primary-emerald);
+  color: var(--primary-emerald);
+}
+
+.btn-filter.active {
+  background-color: var(--primary-emerald);
+  color: #FFFFFF;
+  border-color: var(--primary-emerald);
+  box-shadow: 0 4px 12px rgba(10, 92, 54, 0.2);
+}
+
+/* HEADER SECTION (Judul Kelompok & Badge Jumlah) */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  background-color: var(--secondary-mint);
+  padding: 12px 16px;
+  border-radius: 12px;
+}
+
+.section-title {
+  font-size: 1.05rem;
+  color: var(--primary-emerald);
+  font-weight: 700;
+}
+
+.badge-count {
+  background-color: var(--primary-emerald);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* KARTU DOA / DZIKIR */
+.card-doa {
+  background-color: var(--bg-card);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-doa:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.card-doa .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.card-doa .card-header .badge-count {
+  background-color: var(--secondary-mint);
+  color: var(--primary-emerald);
+}
+
+/* TOMBOL BOOKMARK / FAVORIT */
+.btn-bookmark {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 1.3rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.btn-bookmark:hover {
+  transform: scale(1.15);
+}
+
+.btn-bookmark.active {
+  color: var(--accent-gold);
+}
+
+/* TIPOGRAFI TEKS BACAAN */
+.text-arabic {
+  font-family: 'Amiri', serif;
+  font-size: 1.85rem;
+  line-height: 2.4;
+  text-align: right;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+  direction: rtl;
+  font-weight: 700;
+}
+
+.text-latin {
+  font-size: 0.92rem;
+  color: var(--primary-emerald);
+  font-style: italic;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.text-terjemahan {
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+
+.text-riwayat {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  border-top: 1px dashed var(--border-color);
+  padding-top: 12px;
+  margin-bottom: 16px;
+}
+
+/* TOMBOL AKSI / COUNTER */
+.counter-action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-counter {
+  background-color: var(--primary-emerald);
+  color: #FFFFFF;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 2px 6px rgba(10, 92, 54, 0.15);
+}
+
+.btn-counter:hover {
+  background-color: var(--primary-dark);
+}
+
+.btn-counter:active {
+  transform: scale(0.97);
+}
