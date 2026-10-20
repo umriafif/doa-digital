@@ -1,0 +1,238 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: none !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #f6f8f6;
+  color: #333333;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* navbar */
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 14px 0;
+}
+
+.nav-container-back {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-back {
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #333333;
+}
+
+/* card */
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+/* card wilayah */
+.region-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding: 20px 24px;
+}
+
+.region-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #222222;
+  margin-bottom: 4px;
+}
+
+.region-desc {
+  font-size: 0.85rem;
+  color: #666666;
+}
+
+.region-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.region-select {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+  font-size: 0.85rem;
+  outline: none;
+}
+
+/* card countdown */
+.hero-banner {
+  background-color: #183e29;
+  border-radius: 8px;
+  padding: 24px;
+  margin-top: 20px;
+  color: #ffffff;
+}
+
+.hero-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border: none;
+}
+
+.hero-left,
+.hero-right {
+  color: #ffffff;
+}
+
+.hero-headline {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.hero-headline h2 {
+  font-size: 1.8rem;
+  color: #ffffff;
+}
+
+.hero-highlight {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.hero-right {
+  text-align: right;
+}
+
+.hero-info-label {
+  font-size: 0.75rem;
+  color: #ffffff;
+}
+
+.hero-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* daftar jadwal */
+.section-schedule {
+  margin-top: 28px;
+}
+
+.schedule-section-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 14px;
+  color: #222222;
+}
+
+.grid-schedule {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.schedule-card {
+  padding: 16px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.schedule-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.schedule-label {
+  font-size: 0.8rem;
+  color: #666666;
+  margin-bottom: 6px;
+}
+
+.schedule-time {
+  font-size: 1.35rem;
+  font-weight: bold;
+  color: #222222;
+}
+
+.schedule-card.active-card {
+  background-color: #183e29;
+  border-color: #183e29;
+}
+
+.schedule-card.active-card .schedule-label,
+.schedule-card.active-card .schedule-time {
+  color: #ffffff;
+}
+
+/* footer */
+.footer {
+  background-color: #ffffff;
+  border-top: 1px solid #e0e0e0;
+  padding: 24px 0;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: #888888;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .hero-main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .hero-right {
+    text-align: left;
+  }
+
+  .region-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .region-right {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .grid-schedule {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

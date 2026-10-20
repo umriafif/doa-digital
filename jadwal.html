@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jadwal Sholat</title>
+  <link rel="stylesheet" href="jadwal.css">
+</head>
+<body>
+
+  <!-- navbar -->
+  <header class="navbar">
+    <div class="container nav-container-back">
+      <a href="index.html" class="btn-back">Ke Beranda</a>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- pilih wilayah -->
+    <section class="card region-card">
+      <div class="region-left">
+        <h2 class="region-title">Wilayah</h2>
+        <p class="region-desc">Pilih wilayah sesuai dengan lokasi anda</p>
+      </div>
+
+      <div class="region-right">
+        <select class="region-select">
+          <option>Wilayah 1</option>
+          <option>Wilayah 2</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- kartu countdown -->
+    <section class="hero-banner">
+      <div class="hero-main">
+        <div class="hero-left">
+          <div class="hero-headline">
+            <h2>Dzuhur</h2>
+            <span class="hero-highlight">00:00</span>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <span class="hero-info-label">Countdown:</span>
+          <div class="hero-value">00:00:00</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- jadwal sholat -->
+    <section class="section-schedule">
+      <h3 class="schedule-section-title">Daftar Jadwal Sholat</h3>
+
+      <!-- list jadwal sholat -->
+      <div class="grid-schedule">
+        <div class="card schedule-card">
+          <span class="schedule-label">Waktu 1</span>
+          <div class="schedule-time">00:00</div>
+        </div>
+
+        <div class="card schedule-card">
+          <span class="schedule-label">Waktu 2</span>
+          <div class="schedule-time">00:00</div>
+        </div>
+
+        <div class="card schedule-card active-card">
+          <span class="schedule-label">Waktu 3</span>
+          <div class="schedule-time">00:00</div>
+        </div>
+
+        <div class="card schedule-card">
+          <span class="schedule-label">Waktu 4</span>
+          <div class="schedule-time">00:00</div>
+        </div>
+
+        <div class="card schedule-card">
+          <div class="schedule-card-header">
+            <span class="schedule-label">Waktu 5</span>
+          </div>
+          <div class="schedule-time">00:00</div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-copy">&copy; 2026.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
