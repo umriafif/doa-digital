@@ -70,7 +70,7 @@ const MONTH_NAMES = [
   'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
 ];
 
-let selectedCityKey = 'jakarta';
+let selectedCityKey = localStorage.getItem('selectedWilayah') || 'jakarta';
 
 function initPrayerClock() {
   const wilayahSelect = document.getElementById('wilayahSelect');
@@ -78,6 +78,7 @@ function initPrayerClock() {
     wilayahSelect.value = selectedCityKey;
     wilayahSelect.addEventListener('change', (e) => {
       selectedCityKey = e.target.value;
+      localStorage.setItem('selectedWilayah', selectedCityKey);
       updateClockAndCountdown();
     });
   }

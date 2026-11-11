@@ -3,7 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jadwal Sholat</title>
+  <title>Jadwal Sholat - Doa Digital</title>
+  
+  <!-- Font Google: Inter untuk UI -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="jadwal.css">
 </head>
 <body>
@@ -11,7 +17,7 @@
   <!-- navbar -->
   <header class="navbar">
     <div class="container nav-container-back">
-      <a href="index.html" class="btn-back">Ke Beranda</a>
+      <a href="index.html" class="btn-back">&larr; Ke Beranda</a>
     </div>
   </header>
 
@@ -21,67 +27,50 @@
     <section class="card region-card">
       <div class="region-left">
         <h2 class="region-title">Wilayah</h2>
-        <p class="region-desc">Pilih wilayah sesuai dengan lokasi anda</p>
+        <p class="region-desc" id="currentDateDisplay">Memuat tanggal...</p>
       </div>
 
       <div class="region-right">
-        <select class="region-select">
-          <option>Wilayah 1</option>
-          <option>Wilayah 2</option>
+        <select class="region-select" id="wilayahSelect">
+          <option value="jakarta">Jakarta</option>
+          <option value="bandung">Bandung</option>
+          <option value="surabaya">Surabaya</option>
+          <option value="yogyakarta">Yogyakarta</option>
+          <option value="semarang">Semarang</option>
+          <option value="medan">Medan</option>
+          <option value="makassar">Makassar</option>
         </select>
       </div>
     </section>
 
-    <!-- kartu countdown -->
+    <!-- kartu countdown (warna solid #183e29, tanpa gradasi, tanpa border pemisah) -->
     <section class="countdown-card">
       <div class="countdown-main">
         <div class="countdown-left">
+          <span class="countdown-status-label">Sedang Berjalan Menuju:</span>
           <div class="countdown-sholat-time">
-            <h2>Dzuhur</h2>
-            <span class="countdown-highlight">00:00</span>
+            <h2 id="nextPrayerName">Dzuhur</h2>
+            <span class="countdown-highlight" id="nextPrayerTime">11:42 WIB</span>
+          </div>
+          <div class="countdown-clock">
+            Waktu Lokal: <span id="currentClockDisplay">00:00:00 WIB</span>
           </div>
         </div>
 
         <div class="countdown-right">
-          <span class="countdown-info-label">Countdown:</span>
-          <div class="countdown-time">00:00:00</div>
+          <span class="countdown-info-label">Countdown Sholat:</span>
+          <div class="countdown-time" id="countdownDisplay">00:00:00</div>
         </div>
       </div>
     </section>
 
     <!-- jadwal sholat -->
     <section class="section-schedule">
-      <h3 class="schedule-section-title">Daftar Jadwal Sholat</h3>
+      <h3 class="schedule-section-title">Daftar Jadwal Sholat & Imsakiyah Hari Ini</h3>
 
-      <!-- list jadwal sholat -->
-      <div class="grid-schedule">
-        <div class="card schedule-card">
-          <span class="schedule-label">Waktu 1</span>
-          <div class="schedule-time">00:00</div>
-        </div>
-
-        <div class="card schedule-card">
-          <span class="schedule-label">Waktu 2</span>
-          <div class="schedule-time">00:00</div>
-        </div>
-
-        <div class="card schedule-card active-card">
-          <span class="schedule-label">Waktu 3</span>
-          <div class="schedule-time">00:00</div>
-        </div>
-
-        <div class="card schedule-card">
-          <span class="schedule-label">Waktu 4</span>
-          <div class="schedule-time">00:00</div>
-        </div>
-
-        <div class="card schedule-card">
-          <div class="schedule-card-header">
-            <span class="schedule-label">Waktu 5</span>
-          </div>
-          <div class="schedule-time">00:00</div>
-        </div>
-
+      <!-- 8 kartu rincian jadwal sholat -->
+      <div class="grid-schedule" id="scheduleGrid">
+        <!-- Rendered dynamically by jadwal.js -->
       </div>
     </section>
 
@@ -90,9 +79,10 @@
   <!-- footer -->
   <footer class="footer">
     <div class="container">
-      <p class="footer-copy">&copy; 2026.</p>
+      <p class="footer-copy">&copy; 2026 Doa Digital.</p>
     </div>
   </footer>
 
+  <script src="jadwal.js"></script>
 </body>
 </html>

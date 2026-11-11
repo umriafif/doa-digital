@@ -1,6 +1,11 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: sans-serif;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: #f6f8f6;
   color: #333333;
   line-height: 1.5;
@@ -16,7 +21,18 @@ body {
   padding: 0 16px;
 }
 
-/* navbar */
+main.container {
+  flex: 1;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ================= NAVBAR ================= */
 .navbar {
   background-color: #ffffff;
   border-bottom: 1px solid #e0e0e0;
@@ -30,14 +46,23 @@ body {
 
 .btn-back {
   font-size: 0.85rem;
+  font-weight: 600;
   padding: 6px 14px;
-  border: 1px solid #cccccc;
+  border: 1px solid #d1ded7;
   border-radius: 8px;
   background-color: #ffffff;
-  color: #333333;
+  color: #183e29;
+  text-decoration: none;
+  transition: all 0.15s ease;
 }
 
-/* card */
+.btn-back:hover {
+  background-color: #183e29;
+  border-color: #183e29;
+  color: #ffffff;
+}
+
+/* ================= CARD ================= */
 .card {
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
@@ -45,7 +70,7 @@ body {
   padding: 16px;
 }
 
-/* card wilayah */
+/* ================= CARD WILAYAH ================= */
 .region-card {
   display: flex;
   justify-content: space-between;
@@ -56,7 +81,7 @@ body {
 
 .region-title {
   font-size: 1.25rem;
-  font-weight: bold;
+  font-weight: 700;
   color: #222222;
   margin-bottom: 4px;
 }
@@ -78,10 +103,19 @@ body {
   border: 1px solid #cccccc;
   background-color: #ffffff;
   font-size: 0.85rem;
+  font-weight: 600;
+  color: #183e29;
   outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
 }
 
-/* card countdown */
+.region-select:focus {
+  border-color: #183e29;
+}
+
+/* ================= KARTU COUNTDOWN ================= */
+/* Solid #183e29, tanpa gradasi, tanpa garis pemisah */
 .countdown-card {
   background-color: #183e29;
   border-radius: 8px;
@@ -94,7 +128,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 0;
+  padding: 8px 0;
   border: none;
 }
 
@@ -103,22 +137,45 @@ body {
   color: #ffffff;
 }
 
+.countdown-status-label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.85);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 2px;
+}
+
 .countdown-sholat-time {
   display: flex;
   align-items: baseline;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 4px;
 }
 
 .countdown-sholat-time h2 {
-  font-size: 1.8rem;
+  font-size: 2rem;
+  font-weight: 700;
   color: #ffffff;
 }
 
 .countdown-highlight {
-  font-size: 1.25rem;
-  font-weight: bold;
+  font-size: 1.35rem;
+  font-weight: 700;
   color: #ffffff;
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-clock {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 4px;
+}
+
+.countdown-clock span {
+  font-weight: 700;
+  color: #ffffff;
+  font-variant-numeric: tabular-nums;
 }
 
 .countdown-right {
@@ -127,24 +184,28 @@ body {
 
 .countdown-info-label {
   font-size: 0.75rem;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.85);
+  display: block;
+  margin-bottom: 2px;
 }
 
 .countdown-time {
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 800;
   color: #ffffff;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 1px;
 }
 
-/* daftar jadwal */
+/* ================= DAFTAR JADWAL SHOLAT ================= */
 .section-schedule {
   margin-top: 28px;
 }
 
 .schedule-section-title {
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-bottom: 14px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 16px;
   color: #222222;
 }
 
@@ -155,62 +216,100 @@ body {
 }
 
 .schedule-card {
-  padding: 16px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
   border-radius: 8px;
+  padding: 16px 18px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  min-height: 86px;
+  transition: all 0.2s ease;
+}
+
+.schedule-card:hover {
+  border-color: #c5dacf;
+  box-shadow: 0 4px 12px rgba(24, 62, 41, 0.05);
 }
 
 .schedule-card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .schedule-label {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
+  font-weight: 600;
   color: #666666;
-  margin-bottom: 6px;
+}
+
+.schedule-badge-active {
+  font-size: 0.68rem;
+  font-weight: 700;
+  background-color: #ffffff;
+  color: #183e29;
+  padding: 2px 7px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .schedule-time {
-  font-size: 1.35rem;
-  font-weight: bold;
-  color: #222222;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #1f2937;
+  font-variant-numeric: tabular-nums;
 }
 
+.schedule-time span.time-unit {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #888888;
+  margin-left: 3px;
+}
+
+/* Kartu sholat aktif / berikutnya */
 .schedule-card.active-card {
   background-color: #183e29;
   border-color: #183e29;
+  box-shadow: 0 4px 14px rgba(24, 62, 41, 0.16);
+  transform: translateY(-2px);
 }
 
-.schedule-card.active-card .schedule-label,
+.schedule-card.active-card .schedule-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
 .schedule-card.active-card .schedule-time {
   color: #ffffff;
 }
 
-/* footer */
+.schedule-card.active-card .schedule-time span.time-unit {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ================= FOOTER ================= */
 .footer {
   background-color: #ffffff;
   border-top: 1px solid #e0e0e0;
-  padding: 4px 0;
-  margin-top: auto;
+  padding: 16px 0;
+  margin-top: 40px;
   text-align: center;
 }
 
 .footer-copy {
   font-size: 0.8rem;
-  color: #000000;
+  color: #888888;
 }
 
-/* responsive */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
   .countdown-main {
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+    gap: 14px;
   }
 
   .countdown-right {
@@ -230,5 +329,6 @@ body {
 
   .grid-schedule {
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 }
