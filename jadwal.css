@@ -115,7 +115,6 @@ button {
 }
 
 /* ================= KARTU COUNTDOWN ================= */
-/* Solid #183e29, tanpa gradasi, tanpa garis pemisah */
 .countdown-card {
   background-color: #183e29;
   border-radius: 8px;
@@ -270,7 +269,7 @@ button {
   margin-left: 3px;
 }
 
-/* Kartu sholat aktif / berikutnya */
+/* Kartu sholat aktif */
 .schedule-card.active-card {
   background-color: #183e29;
   border-color: #183e29;

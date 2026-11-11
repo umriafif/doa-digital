@@ -1,9 +1,4 @@
-/**
- * Doa Digital - Script Jadwal Sholat (jadwal.js)
- * Mengelola Jam Real-Time, Countdown Waktu Sholat, & 8 Jadwal Sholat Harian
- */
-
-// ==================== BASIS DATA JADWAL SHOLAT ====================
+// ==================== contoh data ====================
 
 const PRAYER_SCHEDULES = {
   jakarta: {
@@ -93,8 +88,7 @@ const MONTH_NAMES = [
 
 let selectedCityKey = localStorage.getItem('selectedWilayah') || 'jakarta';
 
-// ==================== INISIALISASI & EVENT LISTENERS ====================
-
+// ==================== inisiasi waktu solat berdasarkan wilayah ====================
 function initJadwalPage() {
   const wilayahSelect = document.getElementById('wilayahSelect');
   if (wilayahSelect) {
@@ -110,12 +104,11 @@ function initJadwalPage() {
   setInterval(updateJadwalUI, 1000);
 }
 
-// ==================== FUNGSI UTAMA PEMBARUAN JADWAL ====================
-
+// ==================== update jadwal ====================
 function updateJadwalUI() {
   const now = new Date();
 
-  // 1. Format Waktu Lokal Real-Time
+  // 1. Format Waktu
   const hours = String(now.getHours()).padStart(2, '0');
   const minutes = String(now.getMinutes()).padStart(2, '0');
   const seconds = String(now.getSeconds()).padStart(2, '0');
@@ -126,7 +119,7 @@ function updateJadwalUI() {
     clockEl.textContent = clockStr;
   }
 
-  // 2. Format Tanggal Lengkap Bahasa Indonesia
+  // 2. Format Tanggal
   const dayName = DAY_NAMES[now.getDay()];
   const dateNum = now.getDate();
   const monthName = MONTH_NAMES[now.getMonth()];
@@ -138,10 +131,10 @@ function updateJadwalUI() {
     dateEl.textContent = dateStr;
   }
 
-  // 3. Ambil Jadwal Kota Terpilih
+  // Ambil Jadwal Kota Terpilih
   const s = PRAYER_SCHEDULES[selectedCityKey] || PRAYER_SCHEDULES['jakarta'];
 
-  // 8 Waktu Lengkap (Imsak, Subuh, Terbit, Dhuha, Dzuhur, Ashar, Maghrib, Isya)
+  // card jadwal
   const allPrayers = [
     { name: 'Imsak', time: s.imsak },
     { name: 'Subuh', time: s.subuh },
@@ -153,7 +146,7 @@ function updateJadwalUI() {
     { name: 'Isya', time: s.isya }
   ];
 
-  // 5 Waktu Sholat Fardhu untuk Countdown
+  
   const fardhuPrayers = [
     { name: 'Subuh', time: s.subuh },
     { name: 'Dzuhur', time: s.dzuhur },
@@ -186,7 +179,7 @@ function updateJadwalUI() {
     isTomorrow = true;
   }
 
-  // 4. Hitung Sisa Waktu Countdown
+  // Hitung Sisa Waktu Countdown
   let totalRemainingSeconds = 0;
   if (isTomorrow) {
     const remainingToday = (24 * 60 - nowMinutes) * 60 - nowSeconds;
@@ -210,7 +203,7 @@ function updateJadwalUI() {
   if (nextTimeEl) nextTimeEl.textContent = `${nextPrayer.time} WIB`;
   if (countdownEl) countdownEl.textContent = `${cdHours}:${cdMinutes}:${cdSecs}`;
 
-  // 5. Render 8 Kartu Rincian Waktu Sholat
+  // Render 8 Kartu Rincian Waktu Sholat
   const scheduleGrid = document.getElementById('scheduleGrid');
   if (scheduleGrid) {
     scheduleGrid.innerHTML = allPrayers.map(p => {
@@ -230,5 +223,5 @@ function updateJadwalUI() {
   }
 }
 
-// Inisialisasi setelah DOM siap
+// Inisialisasi
 document.addEventListener('DOMContentLoaded', initJadwalPage);
