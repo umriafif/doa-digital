@@ -12,6 +12,7 @@
   
   <!-- File CSS Eksternal -->
   <link rel="stylesheet" href="dzikir.css">
+  <script src="dzikir.js" defer></script>
 </head>
 <body>
 
@@ -48,7 +49,7 @@
         <p class="text-terjemahan">"Allah, tidak ada tuhan selain Dia Yang Mahahidup, Yang terus-menerus mengurus (makhluk-Nya). Tidak mengantuk dan tidak tidur..."</p>
         <p class="text-riwayat">HR. An-Nasa'i - Dilindungi dari gangguan hingga sore hari.</p>
         <div class="counter-action">
-          <button class="btn-counter">Selesai (1/20)</button>
+          <button class="btn-counter" data-target="0">Hitung: 0 / 0</button>
         </div>
       </article>
 
@@ -62,7 +63,7 @@
         <p class="text-terjemahan">"Dengan nama Allah yang bersama nama-Nya sesuatu apa pun tidak berbahaya di bumi dan di langit..."</p>
         <p class="text-riwayat">HR. Abu Dawud & Tirmidzi - Tidak akan disusadai oleh sesuatu pun.</p>
         <div class="counter-action">
-          <button class="btn-counter">Hitung: 0 / 3</button>
+          <button class="btn-counter" data-target="0">Hitung: 0 / 0</button>
         </div>
       </article>
     </div>
@@ -84,7 +85,7 @@
         <p class="text-terjemahan">"Kami telah memasuki waktu petang dan kerajaan hanya milik Allah, segala puji bagi Allah, tidak ada tuhan selain Allah..."</p>
         <p class="text-riwayat">HR. Muslim - Dzikir utama menjelang malam.</p>
         <div class="counter-action">
-          <button class="btn-counter">Hitung: 0 / 3</button>
+          <button class="btn-counter" data-target="0">Hitung: 0 / 0</button>
         </div>
       </article>
     </div>
@@ -98,40 +99,40 @@
 
       <article class="card-doa">
         <div class="card-header">
-          <span class="badge-count">Dibaca ...x</span>
+          <span class="badge-count">Dibaca 33x</span>
           <button class="btn-bookmark" title="Simpan ke Favorit">☆</button>
         </div>
         <p class="text-arabic">سُبْحَانَ اللَّهِ</p>
         <p class="text-latin">Subhanallah (Maha Suci Allah)</p>
         <p class="text-terjemahan">Dibaca sebanyak 33 kali setelah salam sholat fardhu.</p>
         <div class="counter-action">
-          <button class="btn-counter">Hitung: 0 / 33</button>
+          <button class="btn-counter" data-target="33">Hitung: 0 / 33</button>
         </div>
       </article>
 
       <article class="card-doa">
         <div class="card-header">
-          <span class="badge-count">Dibaca ...x</span>
+          <span class="badge-count">Dibaca 33x</span>
           <button class="btn-bookmark" title="Simpan ke Favorit">☆</button>
         </div>
         <p class="text-arabic">الْحَمْدُ لِلَّهِ</p>
         <p class="text-latin">Alhamdulillah (Segala puji bagi Allah)</p>
         <p class="text-terjemahan">Dibaca sebanyak 33 kali setelah sholat fardhu.</p>
         <div class="counter-action">
-          <button class="btn-counter">Hitung: 0 / 33</button>
+          <button class="btn-counter" data-target="33">Hitung: 0 / 33</button>
         </div>
       </article>
 
       <article class="card-doa">
         <div class="card-header">
-          <span class="badge-count">Dibaca ...x</span>
+          <span class="badge-count">Dibaca 33x</span>
           <button class="btn-bookmark" title="Simpan ke Favorit">☆</button>
         </div>
-        <p class="text-arabic">اللَّهُ أَكْبَرُ</p>
+        <p class="text-arabic">اللَّهُ أَكْبَرُ</p>
         <p class="text-latin">Allahu Akbar (Allah Maha Besar)</p>
         <p class="text-terjemahan">Dibaca sebanyak 33 kali setelah sholat fardhu.</p>
         <div class="counter-action">
-          <button class="btn-counter">Hitung: 0 / 33</button>
+          <button class="btn-counter" data-target="33">Hitung: 0 / 33</button>
         </div>
       </article>
     </div>
@@ -160,6 +161,13 @@
       document.getElementById('header-subtitle').innerText = subtitleText;
     }
   </script>
+
+  <!-- footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-copy">&copy; 2026.</p>
+    </div>
+  </footer>
 
 </body>
 </html>

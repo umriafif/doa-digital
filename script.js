@@ -1,8 +1,3 @@
-/**
- * Doa Digital - Script Beranda (index.html)
- * Mengelola Jam Lokal, Countdown Sholat, Doa Favorit, & Accordion Daftar Doa
- */
-
 // ==================== 1. JADWAL SHOLAT & COUNTDOWN ====================
 
 const PRAYER_SCHEDULES = {
