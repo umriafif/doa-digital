@@ -3,7 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
+  <title>Doa Digital - Kumpulan Doa, Dzikir & Jadwal Sholat</title>
+  
+  <!-- Font Google: Inter untuk UI & Amiri untuk teks Arab -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="home.css">
 </head>
 <body>
@@ -24,9 +30,14 @@
       <div class="sholat-top">
         <div class="sholat-location">
           <span>Wilayah:</span>
-          <select>
-            <option>Wilayah 1</option>
-            <option>Wilayah 2</option>
+          <select id="wilayahSelect">
+            <option value="jakarta">Jakarta</option>
+            <option value="bandung">Bandung</option>
+            <option value="surabaya">Surabaya</option>
+            <option value="yogyakarta">Yogyakarta</option>
+            <option value="semarang">Semarang</option>
+            <option value="medan">Medan</option>
+            <option value="makassar">Makassar</option>
           </select>
         </div>
       </div>
@@ -34,15 +45,18 @@
       <div class="sholat-main">
         <div class="sholat-left">
           <div class="sholat-headline">
-            <h2>Dzuhur</h2>
-            <span class="sholat-highlight">11.42 WIB</span>
+            <h2 id="nextPrayerName">Dzuhur</h2>
+            <span class="sholat-highlight" id="nextPrayerTime">11:42 WIB</span>
           </div>
-          <p class="sholat-desc">Senin, 19 Oktober 2026</p>
+          <p class="sholat-desc" id="currentDateDisplay">Memuat tanggal...</p>
         </div>
 
         <div class="sholat-right">
           <span class="sholat-info-label">Countdown Sholat:</span>
-          <div class="sholat-value">00:00:00</div>
+          <div class="sholat-value" id="countdownDisplay">00:00:00</div>
+          <div class="sholat-clock">
+            Waktu Lokal: <span id="currentClockDisplay">00:00:00 WIB</span>
+          </div>
         </div>
       </div>
 
@@ -51,31 +65,11 @@
       </div>
     </section>
 
-    <!-- daftar menu -->
+    <!-- daftar menu (kotak tombol langsung tanpa detail) -->
     <section class="menu-cards">
-      <div class="card menu-card">
-        <div class="menu-content">
-          <h3>Dzikir Pilihan</h3>
-          <p>Dzikir Pilihan.</p>
-          <a href="dzikir.html" class="menu-link">Dzikir</a>
-        </div>
-      </div>
-
-      <div class="card menu-card">
-        <div class="menu-content">
-          <h3>Jadwal Sholat</h3>
-          <p>Jadwal Sholat.</p>
-          <a href="jadwal.html" class="menu-link">jadwal lengkap</a>
-        </div>
-      </div>
-
-      <div class="card menu-card">
-        <div class="menu-content">
-          <h3>Doa Favorit</h3>
-          <p>Daftar doa favorit.</p>
-          <a href="favorit.html" class="menu-link">Doa Favorit</a>
-        </div>
-      </div>
+      <a href="dzikir.html" class="menu-card">Dzikir Pilihan</a>
+      <a href="jadwal.html" class="menu-card">Jadwal Sholat</a>
+      <a href="favorit.html" class="menu-card">Doa Favorit</a>
     </section>
 
     <!-- daftar doa favorit -->
@@ -85,81 +79,37 @@
         <a href="favorit.html" class="btn-fav">Lihat Semua</a>
       </div>
 
-      <div class="fav-cards">
-        <div class="card fav-card">
-          <h3 class="fav-card-title">Doa 1</h3>
-          <p class="fav-content-primary">Isi Doa 1.</p>
-          <p class="fav-content-secondary">Arti.</p>
-          <div class="fav-card-bottom">
-            <a href="#" class="fav-link-detail">Detail</a>
-          </div>
-        </div>
-
-        <div class="card fav-card">
-          <h3 class="fav-card-title">Doa 2</h3>
-          <p class="fav-content-primary">Isi Doa 2.</p>
-          <p class="fav-content-secondary">Arti.</p>
-          <div class="fav-card-bottom">
-            <a href="#" class="fav-link-detail">Detail</a>
-          </div>
-        </div>
-
-        <div class="card fav-card">
-          <h3 class="fav-card-title">Doa 3</h3>
-          <p class="fav-content-primary">Isi Doa 3.</p>
-          <p class="fav-content-secondary">Arti.</p>
-          <div class="fav-card-bottom">
-            <a href="#" class="fav-link-detail">Detail</a>
-          </div>
-        </div>
+      <div class="fav-cards" id="favCardsContainer">
+        <!-- Kartu favorit dirender oleh script.js -->
       </div>
     </section>
 
-    <!-- daftar doa -->
-    <section class="list-doa">
+    <!-- daftar doa (accordion dropdown) -->
+    <section class="list-doa" id="daftarDoaSection">
       <div class="list-doa-header">
-        <div>
+        <div class="title-wrap">
           <h2 class="section-title">Daftar Doa</h2>
           <p class="section-desc">List seluruh doa yang tersedia.</p>
         </div>
-        <a href="daftar_doa.html" class="btn-fav">Lihat Semua</a>
+        <div class="list-doa-actions">
+          <span class="info-count" id="infoCount">Menampilkan 1-5 doa</span>
+          <div class="accordion-toggle-wrap">
+            <button id="btnExpandAll" type="button" class="btn-toggle-text">Buka Semua</button>
+            <span class="toggle-sep">/</span>
+            <button id="btnCollapseAll" type="button" class="btn-toggle-text">Tutup</button>
+          </div>
+          <a href="daftar_doa.html" class="btn-fav">Lihat Semua</a>
+        </div>
       </div>
 
+      <!-- list accordion dinamis -->
       <div class="simple-list" id="simpleList">
-        <div class="list-item">
-          <div class="list-title">Doa 1</div>
-          <div class="list-content">Detail doa 1.</div>
-        </div>
-
-        <div class="list-item">
-          <div class="list-title">Doa 2</div>
-          <div class="list-content">Detail doa 2.</div>
-        </div>
-
-        <div class="list-item">
-          <div class="list-title">Doa 3</div>
-          <div class="list-content">Detail doa 3.</div>
-        </div>
-
-        <div class="list-item">
-          <div class="list-title">Doa 4</div>
-          <div class="list-content">Detail doa 4.</div>
-        </div>
-
-        <div class="list-item">
-          <div class="list-title">Doa 5</div>
-          <div class="list-content">Detail doa 5.</div>
-        </div>
+        <!-- Rendered dynamically by script.js -->
       </div>
 
-      <!-- pagination -->
-      <div class="pagination">
-        <a href="#">&laquo;</a>
-        <a href="#" class="active">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">&raquo;</a>
+      <!-- pagination dinamis -->
+      <div class="pagination" id="paginationContainer">
+        <!-- Rendered dynamically by script.js -->
       </div>
     </section>
 
@@ -168,10 +118,11 @@
   <!-- footer -->
   <footer class="footer">
     <div class="container">
-      <p class="footer-copy">&copy; 2026.</p>
+      <p class="footer-copy">&copy; 2026 Doa Digital.</p>
     </div>
   </footer>
 
+  <script src="data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
