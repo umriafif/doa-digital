@@ -580,44 +580,6 @@ button {
   color: #183e29;
 }
 
-/* ================= PAGINATION ================= */
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-  margin-top: 24px;
-}
-
-.page-btn {
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #333333;
-  padding: 6px 12px;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.page-btn:hover:not(:disabled) {
-  border-color: #183e29;
-  color: #183e29;
-}
-
-.page-btn.active {
-  background-color: #183e29;
-  border-color: #183e29;
-  color: #ffffff;
-  cursor: default;
-}
-
-.page-btn:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
 /* ================= FOOTER ================= */
 .footer {
   background-color: #ffffff;
