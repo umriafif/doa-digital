@@ -1,83 +1,15 @@
-// ==================== contoh data ====================
+// ==================== JADWAL SHOLAT LENGKAP (API EQURAN.ID) ====================
 
-const PRAYER_SCHEDULES = {
-  jakarta: {
-    name: "Jakarta",
-    imsak: "04:02",
-    subuh: "04:12",
-    terbit: "05:28",
-    dhuha: "06:12",
-    dzuhur: "11:42",
-    ashar: "15:02",
-    maghrib: "17:54",
-    isya: "19:07"
-  },
-  bandung: {
-    name: "Bandung",
-    imsak: "03:59",
-    subuh: "04:09",
-    terbit: "05:25",
-    dhuha: "06:09",
-    dzuhur: "11:39",
-    ashar: "15:00",
-    maghrib: "17:51",
-    isya: "19:04"
-  },
-  surabaya: {
-    name: "Surabaya",
-    imsak: "03:38",
-    subuh: "03:48",
-    terbit: "05:04",
-    dhuha: "05:48",
-    dzuhur: "11:18",
-    ashar: "14:38",
-    maghrib: "17:30",
-    isya: "18:43"
-  },
-  yogyakarta: {
-    name: "Yogyakarta",
-    imsak: "03:47",
-    subuh: "03:57",
-    terbit: "05:13",
-    dhuha: "05:57",
-    dzuhur: "11:27",
-    ashar: "14:47",
-    maghrib: "17:39",
-    isya: "18:52"
-  },
-  semarang: {
-    name: "Semarang",
-    imsak: "03:46",
-    subuh: "03:56",
-    terbit: "05:12",
-    dhuha: "05:56",
-    dzuhur: "11:26",
-    ashar: "14:46",
-    maghrib: "17:38",
-    isya: "18:51"
-  },
-  medan: {
-    name: "Medan",
-    imsak: "04:42",
-    subuh: "04:52",
-    terbit: "06:08",
-    dhuha: "06:52",
-    dzuhur: "12:15",
-    ashar: "15:37",
-    maghrib: "18:14",
-    isya: "19:26"
-  },
-  makassar: {
-    name: "Makassar",
-    imsak: "04:14",
-    subuh: "04:24",
-    terbit: "05:40",
-    dhuha: "06:24",
-    dzuhur: "11:53",
-    ashar: "15:15",
-    maghrib: "18:04",
-    isya: "19:17"
-  }
+// Data cadangan jika API tidak terhubung / offline
+const FALLBACK_PRAYER_TIMES = {
+  imsak: "04:02",
+  subuh: "04:12",
+  terbit: "05:28",
+  dhuha: "06:12",
+  dzuhur: "11:42",
+  ashar: "15:02",
+  maghrib: "17:54",
+  isya: "19:07"
 };
 
 const DAY_NAMES = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
@@ -86,77 +18,53 @@ const MONTH_NAMES = [
   'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
 ];
 
-let selectedCityKey = localStorage.getItem('selectedWilayah') || 'jakarta';
+// Wilayah tersimpan (default: DKI Jakarta & Jakarta Pusat)
+let selectedProvinsi = localStorage.getItem('selectedProvinsi') || 'DKI Jakarta';
+let selectedKabKota = localStorage.getItem('selectedKabKota') || 'Kota Adm. Jakarta Pusat';
 
-// ==================== inisiasi waktu solat berdasarkan wilayah ====================
-function initJadwalPage() {
-  const wilayahSelect = document.getElementById('wilayahSelect');
-  if (wilayahSelect) {
-    wilayahSelect.value = selectedCityKey;
-    wilayahSelect.addEventListener('change', (e) => {
-      selectedCityKey = e.target.value;
-      localStorage.setItem('selectedWilayah', selectedCityKey);
-      updateJadwalUI();
-    });
-  }
+// Variabel untuk menampung waktu sholat hari ini di memori
+let currentPrayerTimes = null;
 
-  updateJadwalUI();
-  setInterval(updateJadwalUI, 1000);
-}
-
-// ==================== update jadwal ====================
-function updateJadwalUI() {
+// Fungsi untuk memperbarui jam dan tanggal lokal real-time
+function updateClock() {
   const now = new Date();
 
-  // 1. Format Waktu
+  // Jam lokal
   const hours = String(now.getHours()).padStart(2, '0');
   const minutes = String(now.getMinutes()).padStart(2, '0');
   const seconds = String(now.getSeconds()).padStart(2, '0');
-  const clockStr = `${hours}:${minutes}:${seconds} WIB`;
-
   const clockEl = document.getElementById('currentClockDisplay');
   if (clockEl) {
-    clockEl.textContent = clockStr;
+    clockEl.textContent = `${hours}:${minutes}:${seconds} WIB`;
   }
 
-  // 2. Format Tanggal
+  // Tanggal
   const dayName = DAY_NAMES[now.getDay()];
   const dateNum = now.getDate();
   const monthName = MONTH_NAMES[now.getMonth()];
   const yearNum = now.getFullYear();
-  const dateStr = `${dayName}, ${dateNum} ${monthName} ${yearNum}`;
-
   const dateEl = document.getElementById('currentDateDisplay');
   if (dateEl) {
-    dateEl.textContent = dateStr;
+    dateEl.textContent = `${dayName}, ${dateNum} ${monthName} ${yearNum}`;
   }
+}
 
-  // Ambil Jadwal Kota Terpilih
-  const s = PRAYER_SCHEDULES[selectedCityKey] || PRAYER_SCHEDULES['jakarta'];
+// Fungsi untuk memperbarui countdown dan 8 kartu jadwal sholat
+function updateCountdownAndCards() {
+  if (!currentPrayerTimes) return;
 
-  // card jadwal
-  const allPrayers = [
-    { name: 'Imsak', time: s.imsak },
-    { name: 'Subuh', time: s.subuh },
-    { name: 'Terbit', time: s.terbit },
-    { name: 'Dhuha', time: s.dhuha },
-    { name: 'Dzuhur', time: s.dzuhur },
-    { name: 'Ashar', time: s.ashar },
-    { name: 'Maghrib', time: s.maghrib },
-    { name: 'Isya', time: s.isya }
-  ];
-
-  
-  const fardhuPrayers = [
-    { name: 'Subuh', time: s.subuh },
-    { name: 'Dzuhur', time: s.dzuhur },
-    { name: 'Ashar', time: s.ashar },
-    { name: 'Maghrib', time: s.maghrib },
-    { name: 'Isya', time: s.isya }
-  ];
-
+  const now = new Date();
   const nowMinutes = now.getHours() * 60 + now.getMinutes();
   const nowSeconds = now.getSeconds();
+
+  // 5 Waktu Sholat Fardhu untuk perhitungan hitung mundur
+  const fardhuPrayers = [
+    { name: 'Subuh', time: currentPrayerTimes.subuh },
+    { name: 'Dzuhur', time: currentPrayerTimes.dzuhur },
+    { name: 'Ashar', time: currentPrayerTimes.ashar },
+    { name: 'Maghrib', time: currentPrayerTimes.maghrib },
+    { name: 'Isya', time: currentPrayerTimes.isya }
+  ];
 
   let nextPrayer = null;
   let nextPrayerMinutes = 0;
@@ -179,7 +87,7 @@ function updateJadwalUI() {
     isTomorrow = true;
   }
 
-  // Hitung Sisa Waktu Countdown
+  // Hitung sisa waktu countdown
   let totalRemainingSeconds = 0;
   if (isTomorrow) {
     const remainingToday = (24 * 60 - nowMinutes) * 60 - nowSeconds;
@@ -194,7 +102,7 @@ function updateJadwalUI() {
   const cdMinutes = String(Math.floor((totalRemainingSeconds % 3600) / 60)).padStart(2, '0');
   const cdSecs = String(totalRemainingSeconds % 60).padStart(2, '0');
 
-  // Update Countdown DOM
+  // Update elemen DOM Countdown
   const nextNameEl = document.getElementById('nextPrayerName');
   const nextTimeEl = document.getElementById('nextPrayerTime');
   const countdownEl = document.getElementById('countdownDisplay');
@@ -203,9 +111,20 @@ function updateJadwalUI() {
   if (nextTimeEl) nextTimeEl.textContent = `${nextPrayer.time} WIB`;
   if (countdownEl) countdownEl.textContent = `${cdHours}:${cdMinutes}:${cdSecs}`;
 
-  // Render 8 Kartu Rincian Waktu Sholat
+  // Render 8 Kartu Rincian Waktu Sholat Hari Ini
   const scheduleGrid = document.getElementById('scheduleGrid');
   if (scheduleGrid) {
+    const allPrayers = [
+      { name: 'Imsak', time: currentPrayerTimes.imsak },
+      { name: 'Subuh', time: currentPrayerTimes.subuh },
+      { name: 'Terbit', time: currentPrayerTimes.terbit },
+      { name: 'Dhuha', time: currentPrayerTimes.dhuha },
+      { name: 'Dzuhur', time: currentPrayerTimes.dzuhur },
+      { name: 'Ashar', time: currentPrayerTimes.ashar },
+      { name: 'Maghrib', time: currentPrayerTimes.maghrib },
+      { name: 'Isya', time: currentPrayerTimes.isya }
+    ];
+
     scheduleGrid.innerHTML = allPrayers.map(p => {
       const isNext = (p.name === nextPrayer.name);
       return `
@@ -223,5 +142,173 @@ function updateJadwalUI() {
   }
 }
 
-// Inisialisasi
+// 1. Ambil daftar Provinsi dari API
+async function fetchProvinsi() {
+  const provSelect = document.getElementById('provinsiSelect');
+  if (!provSelect) return;
+
+  try {
+    const response = await fetch('https://equran.id/api/v2/shalat/provinsi');
+    const result = await response.json();
+    const provinsiList = Array.isArray(result) ? result : (result.data || []);
+
+    provSelect.innerHTML = '';
+    provinsiList.forEach(prov => {
+      const opt = document.createElement('option');
+      opt.value = prov;
+      opt.textContent = prov;
+      provSelect.appendChild(opt);
+    });
+
+    if (provinsiList.includes(selectedProvinsi)) {
+      provSelect.value = selectedProvinsi;
+    } else if (provinsiList.length > 0) {
+      selectedProvinsi = provinsiList[0];
+      provSelect.value = selectedProvinsi;
+      localStorage.setItem('selectedProvinsi', selectedProvinsi);
+    }
+  } catch (error) {
+    console.error('Gagal mengambil provinsi:', error);
+    provSelect.innerHTML = `
+      <option value="DKI Jakarta">DKI Jakarta</option>
+      <option value="Jawa Barat">Jawa Barat</option>
+      <option value="Jawa Tengah">Jawa Tengah</option>
+      <option value="Jawa Timur">Jawa Timur</option>
+      <option value="DI Yogyakarta">DI Yogyakarta</option>
+    `;
+    provSelect.value = selectedProvinsi;
+  }
+
+  // Lanjutkan mengambil daftar kab/kota untuk provinsi ini
+  await fetchKabKota(provSelect.value);
+}
+
+// 2. Ambil daftar Kab/Kota berdasarkan Provinsi
+async function fetchKabKota(provinsiName) {
+  const kabSelect = document.getElementById('kabkotaSelect');
+  if (!kabSelect) return;
+
+  kabSelect.disabled = true;
+  kabSelect.innerHTML = '<option value="">Memuat kab/kota...</option>';
+
+  try {
+    const response = await fetch('https://equran.id/api/v2/shalat/kabkota', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ provinsi: provinsiName })
+    });
+    const result = await response.json();
+    const kabList = Array.isArray(result) ? result : (result.data || []);
+
+    kabSelect.innerHTML = '';
+    kabList.forEach(kab => {
+      const opt = document.createElement('option');
+      opt.value = kab;
+      opt.textContent = kab;
+      kabSelect.appendChild(opt);
+    });
+
+    if (kabList.includes(selectedKabKota)) {
+      kabSelect.value = selectedKabKota;
+    } else if (kabList.length > 0) {
+      selectedKabKota = kabList[0];
+      kabSelect.value = selectedKabKota;
+      localStorage.setItem('selectedKabKota', selectedKabKota);
+    }
+    kabSelect.disabled = false;
+  } catch (error) {
+    console.error('Gagal mengambil kab/kota:', error);
+    kabSelect.innerHTML = '<option value="Kota Adm. Jakarta Pusat">Kota Adm. Jakarta Pusat</option>';
+    selectedKabKota = 'Kota Adm. Jakarta Pusat';
+    kabSelect.disabled = false;
+  }
+
+  // Ambil jadwal sholat untuk kab/kota ini
+  await fetchJadwalSholat(provinsiName, kabSelect.value);
+}
+
+// 3. Ambil jadwal sholat untuk kota terpilih (1 kali saat render / ganti kota)
+async function fetchJadwalSholat(provinsiName, kabkotaName) {
+  const nextTimeEl = document.getElementById('nextPrayerTime');
+  if (nextTimeEl && !currentPrayerTimes) {
+    nextTimeEl.textContent = 'Memuat...';
+  }
+
+  const now = new Date();
+  const bulan = now.getMonth() + 1;
+  const tahun = now.getFullYear();
+  const tanggalHariIni = now.getDate();
+
+  try {
+    const response = await fetch('https://equran.id/api/v2/shalat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        provinsi: provinsiName,
+        kabkota: kabkotaName,
+        bulan: bulan,
+        tahun: tahun
+      })
+    });
+    const result = await response.json();
+    const listJadwal = (result.data && result.data.jadwal) ? result.data.jadwal : (result.jadwal || []);
+
+    const todayData = listJadwal.find(item => Number(item.tanggal) === tanggalHariIni) || listJadwal[0];
+
+    if (todayData) {
+      currentPrayerTimes = {
+        imsak: todayData.imsak,
+        subuh: todayData.subuh,
+        terbit: todayData.terbit,
+        dhuha: todayData.dhuha,
+        dzuhur: todayData.dzuhur,
+        ashar: todayData.ashar,
+        maghrib: todayData.maghrib,
+        isya: todayData.isya
+      };
+    } else {
+      currentPrayerTimes = FALLBACK_PRAYER_TIMES;
+    }
+  } catch (error) {
+    console.error('Gagal mengambil jadwal sholat:', error);
+    currentPrayerTimes = FALLBACK_PRAYER_TIMES;
+  }
+
+  updateCountdownAndCards();
+}
+
+// Inisialisasi halaman jadwal sholat
+function initJadwalPage() {
+  const provSelect = document.getElementById('provinsiSelect');
+  const kabSelect = document.getElementById('kabkotaSelect');
+
+  if (provSelect) {
+    provSelect.addEventListener('change', (e) => {
+      selectedProvinsi = e.target.value;
+      localStorage.setItem('selectedProvinsi', selectedProvinsi);
+      fetchKabKota(selectedProvinsi);
+    });
+  }
+
+  if (kabSelect) {
+    kabSelect.addEventListener('change', (e) => {
+      selectedKabKota = e.target.value;
+      localStorage.setItem('selectedKabKota', selectedKabKota);
+      fetchJadwalSholat(selectedProvinsi, selectedKabKota);
+    });
+  }
+
+  // Update jam dan countdown setiap detik
+  updateClock();
+  updateCountdownAndCards();
+  setInterval(() => {
+    updateClock();
+    updateCountdownAndCards();
+  }, 1000);
+
+  // Ambil data wilayah dari API saat pertama kali dibuka
+  fetchProvinsi();
+}
+
+// Jalankan setelah DOM siap
 document.addEventListener('DOMContentLoaded', initJadwalPage);
