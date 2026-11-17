@@ -198,27 +198,23 @@ function renderFavoritePrayers() {
 }
 
 
-// ==================== 3. DAFTAR DOA (ACCORDION DROPDOWN) ====================
+// ==================== 3. DAFTAR DOA (5 DOA TERPILIH - ACCORDION) ====================
 
-const ITEMS_PER_PAGE = 5;
-let currentPage = 1;
+const HOME_DOA_LIMIT = 5;
 
 function renderAccordionList() {
   const container = document.getElementById('simpleList');
   const infoCount = document.getElementById('infoCount');
   if (!container || typeof doaData === 'undefined' || !doaData.length) return;
 
-  const totalItems = doaData.length;
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const endIndex = Math.min(startIndex + ITEMS_PER_PAGE, totalItems);
-  const currentItems = doaData.slice(startIndex, endIndex);
+  const currentItems = doaData.slice(0, HOME_DOA_LIMIT);
 
   if (infoCount) {
-    infoCount.textContent = `Menampilkan ${startIndex + 1}-${endIndex} dari ${totalItems} doa`;
+    infoCount.textContent = `Menampilkan ${currentItems.length} doa`;
   }
 
   container.innerHTML = currentItems.map((item, index) => {
-    const itemNum = String(startIndex + index + 1).padStart(2, '0');
+    const itemNum = String(index + 1).padStart(2, '0');
     return `
       <div class="accordion-item" data-id="${item.id}">
         <div class="accordion-header">
@@ -243,8 +239,6 @@ function renderAccordionList() {
       </div>
     `;
   }).join('');
-
-  renderPagination();
 }
 
 function setupAccordionEvents() {
@@ -259,89 +253,6 @@ function setupAccordionEvents() {
       item.classList.toggle('open');
     }
   });
-
-  const btnExpandAll = document.getElementById('btnExpandAll');
-  if (btnExpandAll) {
-    btnExpandAll.addEventListener('click', () => {
-      document.querySelectorAll('.accordion-item').forEach(it => it.classList.add('open'));
-    });
-  }
-
-  const btnCollapseAll = document.getElementById('btnCollapseAll');
-  if (btnCollapseAll) {
-    btnCollapseAll.addEventListener('click', () => {
-      document.querySelectorAll('.accordion-item').forEach(it => it.classList.remove('open'));
-    });
-  }
-}
-
-function renderPagination() {
-  const container = document.getElementById('paginationContainer');
-  if (!container || typeof doaData === 'undefined') return;
-
-  container.innerHTML = '';
-  const totalPages = Math.ceil(doaData.length / ITEMS_PER_PAGE);
-  if (totalPages <= 1) return;
-
-  // Tombol Previous «
-  const prevBtn = document.createElement('button');
-  prevBtn.className = 'page-btn';
-  prevBtn.innerHTML = '&laquo;';
-  prevBtn.disabled = currentPage === 1;
-  prevBtn.onclick = () => {
-    if (currentPage > 1) {
-      currentPage--;
-      renderAccordionList();
-      scrollToAccordionSection();
-    }
-  };
-  container.appendChild(prevBtn);
-
-  // Batasi tombol halaman yang tampil agar rapi
-  let startPage = Math.max(1, currentPage - 2);
-  let endPage = Math.min(totalPages, currentPage + 2);
-
-  if (currentPage <= 3) {
-    endPage = Math.min(5, totalPages);
-  }
-  if (currentPage > totalPages - 3) {
-    startPage = Math.max(1, totalPages - 4);
-  }
-
-  for (let i = startPage; i <= endPage; i++) {
-    const pageBtn = document.createElement('button');
-    pageBtn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
-    pageBtn.textContent = i;
-    pageBtn.onclick = () => {
-      if (currentPage !== i) {
-        currentPage = i;
-        renderAccordionList();
-        scrollToAccordionSection();
-      }
-    };
-    container.appendChild(pageBtn);
-  }
-
-  // Tombol Next »
-  const nextBtn = document.createElement('button');
-  nextBtn.className = 'page-btn';
-  nextBtn.innerHTML = '&raquo;';
-  nextBtn.disabled = currentPage === totalPages;
-  nextBtn.onclick = () => {
-    if (currentPage < totalPages) {
-      currentPage++;
-      renderAccordionList();
-      scrollToAccordionSection();
-    }
-  };
-  container.appendChild(nextBtn);
-}
-
-function scrollToAccordionSection() {
-  const section = document.getElementById('daftarDoaSection');
-  if (section) {
-    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
 }
 
 
