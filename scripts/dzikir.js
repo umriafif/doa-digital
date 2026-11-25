@@ -44,3 +44,75 @@
     document.getElementById('header-title').innerText = titleText;
     document.getElementById('header-subtitle').innerText = subtitleText;
   }
+
+  document.addEventListener('DOMContentLoaded', () => {
+  // 1. Ambil tanggal hari ini (format: YYYY-MM-DD)
+  const today = new Date().toISOString().split('T')[0];
+  const savedDate = localStorage.getItem('dzikir_last_date');
+
+  const counterButtons = document.querySelectorAll('.btn-counter');
+  const progressFill = document.getElementById('dzikir-progress-fill');
+  const progressPercent = document.getElementById('dzikir-progress-percent');
+
+  // 2. Cek apakah sudah ganti hari -> jika ya, reset semua hitungan
+  if (savedDate !== today) {
+    localStorage.setItem('dzikir_last_date', today);
+    counterButtons.forEach((_, index) => {
+      localStorage.removeItem(`dzikir_count_${index}`);
+    });
+  }
+
+  // Fungsi untuk menghitung dan memperbarui persentase
+  function updateOverallProgress() {
+    let totalTarget = 0;
+    let totalDone = 0;
+
+    counterButtons.forEach((button, index) => {
+      const target = parseInt(button.getAttribute('data-target')) || 0;
+      const current = parseInt(localStorage.getItem(`dzikir_count_${index}`)) || 0;
+
+      if (target > 0) {
+        totalTarget += target;
+        // Batasi hitungan per item agar tidak melebihi target saat dihitung ke persentase
+        totalDone += Math.min(current, target);
+      }
+    });
+
+    const percent = totalTarget > 0 ? Math.min(100, Math.round((totalDone / totalTarget) * 100)) : 0;
+
+    if (progressFill) progressFill.style.width = `${percent}%`;
+    if (progressPercent) progressPercent.textContent = `${percent} %`;
+  }
+
+  // 3. Pasang event klik pada tiap tombol counter
+  counterButtons.forEach((button, index) => {
+    const targetCount = parseInt(button.getAttribute('data-target')) || 0;
+    let currentCount = parseInt(localStorage.getItem(`dzikir_count_${index}`)) || 0;
+
+    // Tampilkan nilai awal saat halaman dibuka
+    button.innerText = targetCount > 0
+      ? `Hitung: ${currentCount} / ${targetCount}`
+      : `Hitung: ${currentCount}`;
+
+    button.addEventListener('click', () => {
+      currentCount++;
+      localStorage.setItem(`dzikir_count_${index}`, currentCount);
+      localStorage.setItem('dzikir_last_date', today);
+
+      if (targetCount > 0) {
+        button.innerText = `Hitung: ${currentCount} / ${targetCount}`;
+        if (currentCount >= targetCount) {
+          button.style.backgroundColor = '#10B981';
+          button.style.color = '#fff';
+        }
+      } else {
+        button.innerText = `Hitung: ${currentCount}`;
+      }
+
+      updateOverallProgress();
+    });
+  });
+
+  // Hitung persentase pertama kali saat halaman dimuat
+  updateOverallProgress();
+});

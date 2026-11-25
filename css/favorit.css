@@ -1,5 +1,5 @@
 :root {
-  --primary-emerald: #0A5C36;
+  --primary-emerald: #183e29;
   --primary-dark: #08482A;
   --secondary-mint: #E2EDE6;
   --accent-gold: #D4AF37;
@@ -310,4 +310,18 @@ details[open] .dropdown-icon {
 .nav-icon {
   font-size: 1.25rem;
   margin-bottom: 2px;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  background-color: #ffffff;
+  border-top: 1px solid #e0e0e0;
+  padding: 16px 0;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: #888888;
 }

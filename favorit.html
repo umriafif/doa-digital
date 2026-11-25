@@ -10,8 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   
-  <!-- File CSS Eksternal -->
+  <!-- File CSS & JS Eksternal -->
   <link rel="stylesheet" href="css/favorit.css">
+  <script src="js/favorit.js"></script>
 </head>
 <body>
 
@@ -21,8 +22,9 @@
     <p>Kumpulan doa dan dzikir yang kamu simpan</p>
   </header>
 
+
   <main class="container">
-    <a href="index.html" class="btn-back-link">← Kembali</a>
+        <a href="index.html" class="btn-back-link">← Kembali</a>
 
     <div class="section-header">
       <span class="section-title">Daftar Tersimpan</span>
@@ -40,8 +42,8 @@
             <span class="dropdown-title">Doa Memohon Ilmu & Rezeki</span>
           </div>
           <div class="header-right">
-            <!-- Tombol Hati Merah Active -->
-            <button class="btn-heart active" onclick="toggleFavorite(event, this)" title="Hapus dari Favorit">
+            <!-- Tombol Bintang Active -->
+            <button class="btn-star active" onclick="toggleFavorite(event, this)" title="Hapus dari Favorit">
               <span class="star-icon">★</span>
             </button>
             <span class="dropdown-icon">▼</span>
@@ -63,8 +65,8 @@
             <span class="dropdown-title">Ayat Kursi</span>
           </div>
           <div class="header-right">
-            <!-- Tombol Hati Merah Active -->
-            <button class="btn-heart active" onclick="toggleFavorite(event, this)" title="Hapus dari Favorit">
+            <!-- Tombol Bintang Active -->
+            <button class="btn-star active" onclick="toggleFavorite(event, this)" title="Hapus dari Favorit">
               <span class="star-icon">★</span>
             </button>
             <span class="dropdown-icon">▼</span>
@@ -84,7 +86,7 @@
     <div id="empty-state" class="empty-state" style="display: none;">
       <div class="empty-state-icon">☆</div>
       <h3>Belum Ada Favorit</h3>
-      <p>Tekan tanda bintang ★ pada doa atau dzikir yang ingin kamu simpan di sini.</p>
+      <p>Tekan tanda bintang ★ pada doa atau dzikir yang ingin kamu simpan di sini!</p>
     </div>
 
   </main>
@@ -114,9 +116,9 @@
           updateFavoriteCount();
         }, 300);
       } else {
-        // Aktifkan kembali hati merah
+        // Aktifkan kembali bintang 
         btn.classList.add('active');
-        btn.querySelector('.heart-icon').innerText = '★';
+        btn.querySelector('.star-icon').innerText = '★';
         btn.setAttribute('title', 'Hapus dari Favorit');
       }
     }
@@ -134,6 +136,13 @@
       }
     }
   </script>
+
+<!-- footer -->
+<footer class="footer">
+  <div class="container">
+    <p class="footer-copy">&copy; 2026.</p>
+  </div>
+</footer>
 
 </body>
 </html>

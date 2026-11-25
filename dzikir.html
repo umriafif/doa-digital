@@ -24,12 +24,26 @@
 
   <main class="container">
 
+    <div class="progress-card" id="dzikir-progress-card">
+  <div class="progress-icon">✨</div>
+  <div class="progress-content">
+    <div class="progress-title">Target Dzikir Harian</div>
+    <div class="progress-subtitle">Jangan sampai lupa berdzikir di sela kegiatan hari ini!</div>
+    <div class="progress-bar-wrapper">
+      <div class="progress-track">
+        <div class="progress-fill" id="dzikir-progress-fill" style="width: 0%;"></div>
+      </div>
+      <span class="progress-percent" id="dzikir-progress-percent">0 %</span>
+    </div>
+  </div>
+</div>
+
     <!-- TOMBOL FILTER 3 KELOMPOK WAKTU -->
     <div class="category-filter">
       <button class="btn-filter active" onclick="filterGroup('pagi', 'Dzikir Pagi', 'Awali hari dengan perlindungan dan berkah Allah')">🌅 Pagi</button>
 
       <button class="btn-filter" onclick="filterGroup('petang', 'Dzikir Petang', 'Benteng perlindungan menjelang malam tiba')">🌆 Petang</button>
-      <button class="btn-filter" onclick="filterGroup('sholat', 'Dzikir Sehabis Sholat', 'Amalan utama penutup sholat fardhu')">🕌 Sehabis Sholat</button>
+      <button class="btn-filter" onclick="filterGroup('sholat', 'Dzikir Setelah Sholat', 'Amalan utama penutup sholat fardhu')">🕌 Setelah Sholat</button>
     </div>
 
     <!-- KELOMPOK 1: DZIKIR PAGI -->
@@ -41,29 +55,42 @@
 
       <article class="card-doa">
         <div class="card-header">
-          <span class="badge-count">Dibaca ...x</span>
+          <span class="badge-count">Dibaca 1x</span>
           <button class="btn-bookmark active" title="Simpan ke Favorit">★</button>
         </div>
-        <p class="text-arabic">اللَّهُ لَا إِلٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ</p>
-        <p class="text-latin">Allahu laa ilaaha illaa huwal hayyul qayyuum, laa ta'khuzuhuu sinatun wa laa naum...</p>
-        <p class="text-terjemahan">"Allah, tidak ada tuhan selain Dia Yang Mahahidup, Yang terus-menerus mengurus (makhluk-Nya). Tidak mengantuk dan tidak tidur..."</p>
-        <p class="text-riwayat">HR. An-Nasa'i - Dilindungi dari gangguan hingga sore hari.</p>
+        <p class="text-arabic">أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ</p>
+        <p class="text-latin">A'udzu billahi minasy syaitanir rajim</p>
+        <p class="text-terjemahan">Aku berlindung kepada Allah dari godaan setan yang terkutuk</p>
         <div class="counter-action">
-          <button class="btn-counter" data-target="0">Hitung: 0 / 0</button>
+          <button class="btn-counter" data-target="1">Hitung: 0 / 1</button>
         </div>
       </article>
 
       <article class="card-doa">
         <div class="card-header">
-          <span class="badge-count">Dibaca ...x</span>
+          <span class="badge-count">Dibaca 1x</span>
           <button class="btn-bookmark" title="Simpan ke Favorit">☆</button>
         </div>
-        <p class="text-arabic">بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ</p>
-        <p class="text-latin">Bismillahilladzii laa yadhurru ma'asmihii syai'un fil ardhi wa laa fis samaa'...</p>
-        <p class="text-terjemahan">"Dengan nama Allah yang bersama nama-Nya sesuatu apa pun tidak berbahaya di bumi dan di langit..."</p>
-        <p class="text-riwayat">HR. Abu Dawud & Tirmidzi - Tidak akan disusadai oleh sesuatu pun.</p>
+        <p class="text-arabic">اَللّٰهُ لَآ اِلٰهَ اِلَّا هُوَ ۚ اَلْحَيُّ الْقَيُّوْمُ ەۚ لَا تَأْخُذُهٗ سِنَةٌ وَّلَا نَوْمٌ ۗ لَهٗ مَا فِى السَّمٰوٰتِ وَمَا فِى الْاَرْضِ ۗ مَنْ ذَا الَّذِيْ يَشْفَعُ عِنْدَهٗٓ اِلَّا بِاِذْنِهٖ ۗ يَعْلَمُ مَا بَيْنَ اَيْدِيْهِمْ وَمَا خَلْفَهُمْ ۚ وَلَا يُحِيْطُوْنَ بِشَيْءٍ مِّنْ عِلْمِهٖٓ اِلَّا بِمَا شَاۤءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمٰوٰتِ وَالْاَرْضَ ۚ وَلَا يَـُٔوْدُهٗ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيْمُ</p>
+        <p class="text-latin">Allâhu lâ ilâha illâ huw, al-ḫayyul-qayyûm, lâ ta'khudzuhû sinatuw wa lâ na'ûm, lahû mâ fis-samâwâti wa mâ fil-ardl, man dzalladzî yasyfa'u 'indahû illâ bi'idznih, ya'lamu mâ baina aidîhim wa mâ khalfahum, wa lâ yuḫîthûna bisyai'im min 'ilmihî illâ bimâ syâ', wasi'a kursiyyuhus-samâwâti wal-ardl, wa lâ ya'ûduhû ḫifdhuhumâ, wa huwal-'aliyyul-'adhîm</p>
+        <p class="text-terjemahan">Allah, tidak ada tuhan selain Dia, Yang Maha Hidup lagi terus-menerus mengurus (makhluk-Nya). Dia tidak dilanda oleh kantuk dan tidak (pula) oleh tidur. Milik-Nya lah apa yang ada di langit dan apa yang ada di bumi. Tidak ada yang dapat memberi syafaat di sisi-Nya tanpa izin-Nya. Dia mengetahui apa yang ada di hadapan mereka dan apa yang ada di belakang mereka. Mereka tidak mengetahui sesuatu apa pun dari ilmu-Nya, kecuali apa yang Dia kehendaki. Kursi-Nya (ilmu dan kekuasaan-Nya) meliputi langit dan bumi. Dia tidak merasa berat memelihara keduanya. Dia lah yang Maha Tinggi lagi Maha Agung</p>
+        <p class="text-riwayat">HR. Al Hakim(1:562)</p>
         <div class="counter-action">
-          <button class="btn-counter" data-target="0">Hitung: 0 / 0</button>
+          <button class="btn-counter" data-target="1">Hitung: 0 / 1</button>
+        </div>
+      </article>
+
+      <article class="card-doa">
+        <div class="card-header">
+          <span class="badge-count">Dibaca 3x</span>
+          <button class="btn-bookmark" title="Simpan ke Favorit">☆</button>
+        </div>
+        <p class="text-arabic"> قُلْ هُوَ اللَّهُ أَحَدٌ. اللَّهُ الصَّمَدُ. لَمْ يَلِدْ وَلَمْ يُولَدْ. وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ</p>
+        <p class="text-latin">Qul Huwallahu Ahad. Allahush-Shomad. Lam yalid wa lam yulad. Wa lam yakul-lahu kufuwan Ahad</p>
+        <p class="text-terjemahan">Katakanlah (Muhammad): "Dia lah Allah Yang Maha Esa". Allah adalah tempat meminta segala sesuatu. Dia tidak beranak dan tidak pula diperankan. Serta tidak ada sesuatu pun yang setara dengan-Nya</p>
+        <p class="text-riwayat">HR. Abu Dawud No. 5082</p>
+        <div class="counter-action">
+          <button class="btn-counter" data-target="3">Hitung: 0 / 3</button>
         </div>
       </article>
     </div>
@@ -77,34 +104,125 @@
 
       <article class="card-doa">
         <div class="card-header">
-          <span class="badge-count">Dibaca ...x</span>
+          <span class="badge-count">Dibaca 1x</span>
           <button class="btn-bookmark" title="Simpan ke Favorit">☆</button>
         </div>
-        <p class="text-arabic">أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ لَا إِلَهَ إِلَّا اللَّهُ</p>
-        <p class="text-latin">Amsainaa wa amsal mulku lillah, wal hamdu lillah, laa ilaaha illallah...</p>
-        <p class="text-terjemahan">"Kami telah memasuki waktu petang dan kerajaan hanya milik Allah, segala puji bagi Allah, tidak ada tuhan selain Allah..."</p>
-        <p class="text-riwayat">HR. Muslim - Dzikir utama menjelang malam.</p>
+        <p class="text-arabic">أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ</p>
+        <p class="text-latin">A'udzu billahi minasy syaitanir rajim</p>
+        <p class="text-terjemahan">Aku berlindung kepada Allah dari godaan setan yang terkutuk</p>
         <div class="counter-action">
-          <button class="btn-counter" data-target="0">Hitung: 0 / 0</button>
+          <button class="btn-counter" data-target="1">Hitung: 0 / 1</button>
+        </div>
+      </article>
+
+      <article class="card-doa">
+        <div class="card-header">
+          <span class="badge-count">Dibaca 1x</span>
+          <button class="btn-bookmark" title="Simpan ke Favorit">☆</button>
+        </div>
+        <p class="text-arabic">اَللّٰهُ لَآ اِلٰهَ اِلَّا هُوَ ۚ اَلْحَيُّ الْقَيُّوْمُ ەۚ لَا تَأْخُذُهٗ سِنَةٌ وَّلَا نَوْمٌ ۗ لَهٗ مَا فِى السَّمٰوٰتِ وَمَا فِى الْاَرْضِ ۗ مَنْ ذَا الَّذِيْ يَشْفَعُ عِنْدَهٗٓ اِلَّا بِاِذْنِهٖ ۗ يَعْلَمُ مَا بَيْنَ اَيْدِيْهِمْ وَمَا خَلْفَهُمْ ۚ وَلَا يُحِيْطُوْنَ بِشَيْءٍ مِّنْ عِلْمِهٖٓ اِلَّا بِمَا شَاۤءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمٰوٰتِ وَالْاَرْضَ ۚ وَلَا يَـُٔوْدُهٗ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيْمُ</p>
+        <p class="text-latin">Allâhu lâ ilâha illâ huw, al-ḫayyul-qayyûm, lâ ta'khudzuhû sinatuw wa lâ na'ûm, lahû mâ fis-samâwâti wa mâ fil-ardl, man dzalladzî yasyfa'u 'indahû illâ bi'idznih, ya'lamu mâ baina aidîhim wa mâ khalfahum, wa lâ yuḫîthûna bisyai'im min 'ilmihî illâ bimâ syâ', wasi'a kursiyyuhus-samâwâti wal-ardl, wa lâ ya'ûduhû ḫifdhuhumâ, wa huwal-'aliyyul-'adhîm</p>
+        <p class="text-terjemahan">Allah, tidak ada tuhan selain Dia, Yang Maha Hidup lagi terus-menerus mengurus (makhluk-Nya). Dia tidak dilanda oleh kantuk dan tidak (pula) oleh tidur. Milik-Nya lah apa yang ada di langit dan apa yang ada di bumi. Tidak ada yang dapat memberi syafaat di sisi-Nya tanpa izin-Nya. Dia mengetahui apa yang ada di hadapan mereka dan apa yang ada di belakang mereka. Mereka tidak mengetahui sesuatu apa pun dari ilmu-Nya, kecuali apa yang Dia kehendaki. Kursi-Nya (ilmu dan kekuasaan-Nya) meliputi langit dan bumi. Dia tidak merasa berat memelihara keduanya. Dia lah yang Maha Tinggi lagi Maha Agung</p>
+        <p class="text-riwayat">HR. Al Hakim(1:562)</p>
+        <div class="counter-action">
+          <button class="btn-counter" data-target="1">Hitung: 0 / 1</button>
+        </div>
+      </article>
+
+      <article class="card-doa">
+        <div class="card-header">
+          <span class="badge-count">Dibaca 3x</span>
+          <button class="btn-bookmark" title="Simpan ke Favorit">☆</button>
+        </div>
+        <p class="text-arabic">قُلْ هُوَ اللَّهُ أَحَدٌ. اللَّهُ الصَّمَدُ. لَمْ يَلِدْ وَلَمْ يُولَدْ. وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ</p>
+        <p class="text-latin">Qul Huwallahu Ahad. Allahush-Shomad. Lam yalid wa lam yulad. Wa lam yakul-lahu kufuwan Ahad</p>
+        <p class="text-terjemahan">Katakanlah (Muhammad): "Dia lah Allah Yang Maha Esa". Allah adalah tempat meminta segala sesuatu. Dia tidak beranak dan tidak pula diperankan. Serta tidak ada sesuatu pun yang setara dengan-Nya</p>
+        <div class="counter-action">
+          <button class="btn-counter" data-target="3">Hitung: 0 / 3</button>
         </div>
       </article>
     </div>
 
-    <!-- KELOMPOK 3: SEHABIS SHOLAT -->
+    <!-- KELOMPOK 3: SETELAH SHOLAT -->
     <div id="group-sholat" class="dzikir-group" style="display: none;">
       <div class="section-header">
-        <span class="section-title">Bacaan Dzikir Sehabis Sholat Fardhu</span>
+        <span class="section-title">Bacaan Dzikir Setelah Sholat Fardhu</span>
         <span class="badge-count">10 Bacaan</span>
       </div>
+
+      <article class="card-doa">
+        <div class="card-header">
+          <span class="badge-count">Dibaca 3x</span>
+          <button class="btn-bookmark" title="Simpan ke Favorit">☆</button>
+        </div>
+        <p class="text-arabic">أَسْتَغْفِرُ اللَّهَ</p>
+        <p class="text-latin">Astaghfirullah</p>
+        <p class="text-terjemahan">Aku memohon ampun kepada Allah</p>
+        <div class="counter-action">
+          <button class="btn-counter" data-target="3">Hitung: 0 / 3</button>
+        </div>
+      </article>
+
+      <article class="card-doa">
+        <div class="card-header">
+          <span class="badge-count">Dibaca 1x</span>
+          <button class="btn-bookmark" title="Simpan ke Favorit">☆</button>
+        </div>
+        <p class="text-arabic">اَللّهُمَّ اَنْتَ السَّلاَمُ، وَمِنْكَ السَّلاَمُ، تَبَارَكْتَ يَاذَاْلجَلاَلِ وَاْلاِكْرَامِ</p>
+        <p class="text-latin">Allahumma antas-salaam wa minkas-salaam, tabarakta yaa dhal-jalaali wal-ikraam</p>
+        <p class="text-terjemahan">Ya Allah, Engkaulah Dzat yang memberi keselamatan. Dari-Mu keselamatan (bersumber). Engkau Maha Agung, wahai Dzat yang memiliki keagungan dan kemuliaan</p>
+        <div class="counter-action">
+          <button class="btn-counter" data-target="1">Hitung: 0 / 1</button>
+        </div>
+      </article>
+
+      <article class="card-doa">
+        <div class="card-header">
+          <span class="badge-count">Dibaca 1x</span>
+          <button class="btn-bookmark" title="Simpan ke Favorit">☆</button>
+        </div>
+        <p class="text-arabic">لا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرُ، اللَّهُمَّ لَا مَانِعَ لِمَا أَعْطَيْتَ وَلَا مُعْطِيَ لِمَا مَنَعْتَ وَلَا يَنْفَعُ ذَا الْجَدِ مِنْكَ الْجَدُّ</p>
+        <p class="text-latin">La ilaha illallahu wahdahu la sharika lah, lahul-mulku wa lahul-hamdu wa huwa 'ala kulli shay'in qadir, allahumma la mānifa lima a'tayt wa la mu'tiya lima mana'ta wa la yanfa'u dha al-jaddi minaka al-jadd</p>
+        <p class="text-terjemahan">Tidak ada ilah yang berhak diibadahi kecuali Allah, Yang Maha Esa, tidak ada sekutu bagi-Nya. Bagi-Nya kerajaan dan bagi-Nya pujian, dan Dia Yang Maha Kuasa atas segala sesuatu. Ya Allah, tidak ada yang dapat mencegah apa yang Engkau berikan, dan tidak ada yang dapat memberikan apa yang Engkau cegah, dan tidak bergunakekayaan dan kemuliaan itu bagi pemiliknya untuk menebus dari (siksa) Mu. Hanya dari-Mu kekayaan dan kemuliaan</p>
+        <div class="counter-action">
+          <button class="btn-counter" data-target="1">Hitung: 0 / 1</button>
+        </div>
+      </article>
+
+      <article class="card-doa">
+        <div class="card-header">
+          <span class="badge-count">Dibaca 1x</span>
+          <button class="btn-bookmark" title="Simpan ke Favorit">☆</button>
+        </div>
+        <p class="text-arabic">لا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرُ، لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللهِ، لَا إِلَهَ إِلَّا اللهُ وَلَا نَعْبُدُ إِلَّا إِيَّاهُ، لَهُ النِعْمَةُ وَلَهُ الْفَضْلُ وَلَهُ الثَّنَاءُ الْحَسَنُ، لَا إِلَهَ إِلَّا الله مُخْلِصِينَ لَهُ الدِّينَ وَلَوْ كَرِهَ الْكَافِرُوْنَ</p>
+        <p class="text-latin">Laa ilaha illallah wahdahu laa syarika lah, lahul mulku wa lahul hamdu wa huwa 'ala kulli syai-in qodiir, laa hawla wa laa quwwata illa billah, laa ilaha illallah wa laa na'budu illa iyyaah, lahun ni'mah wa lahul fadhlu wa lahuts tsanaaul hasan, laa ilaha illallahu mukhlishiina lahud diin wa law karihal kaafiruun</p>
+        <p class="text-terjemahan">Tidak ada ilah yang berhak diibadahi kecuali Allah, Yang Maha Esa, tidak ada sekutu bagi-Nya. Bagi-Nya kerajaan dan bagi-Nya pujian, dan Dia Yang Maha Kuasa atas segala sesuatu.Tidak ada daya dan tidak ada kekuatan melainkan (dengan pertolongan) dari Allah. Tidak ada ilah yang berhak diibadahi kecuali Allah, dan tidak ada yang disembah melainkan Dia. Bagi-Nya nikmat dan keutamaan, dan bagi-Nya pujian yang baik. Tidak ada ilah yang berhak diibadahi kecuali Allah, dengan memurnikan niat beribadah untuk-Nya, meskipun orang-orang kafir membencinya</p>
+        <div class="counter-action">
+          <button class="btn-counter" data-target="1">Hitung: 0 / 1</button>
+        </div>
+      </article>
+
+      <article class="card-doa">
+        <div class="card-header">
+          <span class="badge-count">Dibaca 10x</span>
+          <button class="btn-bookmark" title="Simpan ke Favorit">☆</button>
+        </div>
+        <p class="text-arabic">لاَ إِلَهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ، لَهُ المُلْكُ وَلَهُ الْحَمْدُ يُحْيِيْ وَيُمِيْتُ وَهُوَ حَيٌّ لاَ يَمُوْتُ، بِيَدِهِ الْخَيْرُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيْر </p>
+        <p class="text-latin">Lailahaillallah wahdahula syarikalah lahul mulku walahul hamdu yuhyi wayumitu wahuwa ala kulli syai-in qadir</p>
+        <p class="text-terjemahan">Tidak ada ilah yang berhak diibadahi kecuali Allah, Yang Maha Esa, tidak ada sekutu bagi-Nya. Bagi-Nya segala kekuasaan dan bagi-Nya segala pujian, dan Dia Yang Maha Kuasa atas segala sesuatu</p>
+        <div class="counter-action">
+          <button class="btn-counter" data-target="10">Hitung: 0 / 10</button>
+        </div>
+      </article>
 
       <article class="card-doa">
         <div class="card-header">
           <span class="badge-count">Dibaca 33x</span>
           <button class="btn-bookmark" title="Simpan ke Favorit">☆</button>
         </div>
-        <p class="text-arabic">سُبْحَانَ اللَّهِ</p>
-        <p class="text-latin">Subhanallah (Maha Suci Allah)</p>
-        <p class="text-terjemahan">Dibaca sebanyak 33 kali setelah salam sholat fardhu.</p>
+        <p class="text-arabic">سُبْحَانَ اللَّهِ</p>
+        <p class="text-latin">Subhanallah</p>
+        <p class="text-terjemahan">Maha Suci Allah</p>
         <div class="counter-action">
           <button class="btn-counter" data-target="33">Hitung: 0 / 33</button>
         </div>
@@ -116,8 +234,8 @@
           <button class="btn-bookmark" title="Simpan ke Favorit">☆</button>
         </div>
         <p class="text-arabic">الْحَمْدُ لِلَّهِ</p>
-        <p class="text-latin">Alhamdulillah (Segala puji bagi Allah)</p>
-        <p class="text-terjemahan">Dibaca sebanyak 33 kali setelah sholat fardhu.</p>
+        <p class="text-latin">Alhamdulillah</p>
+        <p class="text-terjemahan">Segala puji bagi Allah</p>
         <div class="counter-action">
           <button class="btn-counter" data-target="33">Hitung: 0 / 33</button>
         </div>
@@ -129,13 +247,52 @@
           <button class="btn-bookmark" title="Simpan ke Favorit">☆</button>
         </div>
         <p class="text-arabic">اللَّهُ أَكْبَرُ</p>
-        <p class="text-latin">Allahu Akbar (Allah Maha Besar)</p>
-        <p class="text-terjemahan">Dibaca sebanyak 33 kali setelah sholat fardhu.</p>
+        <p class="text-latin">Allahu Akbar</p>
+        <p class="text-terjemahan">Allah Maha Besar</p>
         <div class="counter-action">
           <button class="btn-counter" data-target="33">Hitung: 0 / 33</button>
         </div>
       </article>
-    </div>
+
+    <article class="card-doa">
+      <div class="card-header">
+        <span class="badge-count">Dibaca 1x</span>
+        <button class="btn-bookmark" title="Simpan ke Favorit">☆</button>
+      </div>
+      <p class="text-arabic">لا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرُ</p>
+      <p class="text-latin">Lā ilāha illallah wahdahu lā sharīka lah, lahul-mulku wa lahul-ḥamdu wa huwa 'alā kulli shay'in qādir</p>
+      <p class="text-terjemahan">Tidak ada ilah selain Allah, Yang Maha Esa, tidak ada sekutu bagi-Nya. Milik-Nya adalah kerajaan dan milik-Nya adalah pujian, dan Dia Maha Kuasa atas segala sesuatu</p>
+      <div class="counter-action">
+        <button class="btn-counter" data-target="1">Hitung: 0 / 1</button>
+      </div>
+    </article>
+
+    <article class="card-doa">
+      <div class="card-header">
+        <span class="badge-count">Dibaca 1x</span>
+        <button class="btn-bookmark" title="Simpan ke Favorit">☆</button>
+      </div>
+      <p class="text-arabic">َرَبِّ قِنِي عَذَابَكَ يَوْمَ تَبْعَثُ - أَوْ تَجْمَعُ - عِبَادَكَ</p>
+      <p class="text-latin">Rabbi qinī 'adzābaka yawma tab'atsu — aw tajma'u — 'ibādaka</p>
+      <p class="text-terjemahan">Wahai Rabbku, lindungilah aku dari azab-Mu pada hari Engkau membangkitkan — atau mengumpulkan — hamba-hamba-Mu</p>
+      <div class="counter-action">
+        <button class="btn-counter" data-target="1">Hitung: 0 / 1</button>
+      </div>
+    </article>
+
+    <article class="card-doa">
+      <div class="card-header">
+        <span class="badge-count">Dibaca 1x</span>
+        <button class="btn-bookmark" title="Simpan ke Favorit">☆</button>
+      </div>
+      <p class="text-arabic">ٱللَّهُ لَآ إِلَـٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ ۚ لَا تَأْخُذُهُۥ سِنَةٌۭ وَلَا نَوْمٌۭ ۚ لَّهُۥ مَا فِى ٱلسَّمَـٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَىْءٍۢ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَ ۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضَ ۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَا ۚ وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ</p>
+      <p class="text-latin">allâhu lâ ilâha illâ huwal-ḫayyul-qayyûm, lâ ta'khudzuhû sinatuw wa lâ na'ûm, lahû mâ fis-samâwâti wa mâ fil-ardl, man dzalladzî yasyfa'u 'indahû illâ bi'idznih, ya'lamu mâ baina aidîhim wa mâ khalfahum, wa lâ yuḫîthûna bisyai'im min 'ilmihî illâ bimâ syâ', wasi'a kursiyyuhus-samâwâti wal-ardl, wa lâ ya'ûduhû ḫifdhuhumâ, wa huwal-'aliyyul-'adhîm</p>
+      <p class="text-terjemahan">Allah, tidak ada Tuhan selain Dia, Yang Maha Hidup lagi terus-menerus mengurus (makhluk-Nya). Dia tidak dilanda oleh kantuk dan tidak (pula) oleh tidur. Milik-Nya lah apa yang ada di langit dan apa yang ada di bumi. Tidak ada yang dapat memberi syafaat di sisi-Nya tanpa izin-Nya. Dia mengetahui apa yang ada di hadapan mereka dan apa yang ada di belakang mereka. Mereka tidak mengetahui sesuatu apa pun dari ilmu-Nya, kecuali apa yang Dia kehendaki. Kursi-Nya (ilmu dan kekuasaan-Nya) meliputi langit dan bumi. Dia tidak merasa berat memelihara keduanya. Dia lah yang Maha Tinggi lagi Maha Agung</p>
+      <div class="counter-action">
+        <button class="btn-counter" data-target="1">Hitung: 0 / 1</button>
+      </div>
+    </article>
+  </div>
 
   </main>
 
